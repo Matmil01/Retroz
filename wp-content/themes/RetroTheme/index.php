@@ -21,8 +21,8 @@
 
 			<?php endwhile; ?>
 		</ul>
-<?php get_template_part("template-parts/index", "testimonials") ?>
 		
 		<?php wp_reset_postdata(); ?>	
-	<?php endif; ?>
+		<?php endif; ?>
+		<?php get_template_part("template-parts/index", "testimonials") ?>
 <?php get_footer() ?>
