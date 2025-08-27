@@ -5,19 +5,22 @@
 			<?php
 			$title = get_the_title();
 			$link = get_the_permalink();
-			$director = get_field("director");
+			$developer = get_field("developer");
+			$publisher = get_field("publisher");
 			$summary = get_field("summary");
 			?>
 
-			<div class="movie">
+			<div class="game">
 				<h1><?php echo esc_html($title) ?></h1>
-				<p>Director: <?php echo esc_html($director) ?></p>
+				<p>Developer: <?php echo esc_html($developer) ?></p>
+				<p>Publisher: <?php echo esc_html($publisher) ?></p>
+				
 				<hr>
 				<p><?php echo esc_html($summary) ?></p>
 				<hr>
-				<?php get_template_part("template-parts/movie", "review-list") ?>
+				<?php get_template_part("template-parts/game", "review-list") ?>
 				<hr>
-				<?php get_template_part("template-parts/movie", "review-form") ?>
+				<?php get_template_part("template-parts/game", "review-form") ?>
 			</div>
 
 		<?php endwhile; ?>
