@@ -9,6 +9,8 @@
 	
 	<body <?php body_class(); ?>>
 
+	<ul class="language"><?php pll_the_languages() ?></ul>
+
 		<?php 
 		if ( function_exists( 'wp_body_open' ) ) {
 			wp_body_open(); 

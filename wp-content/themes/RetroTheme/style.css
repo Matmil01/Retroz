@@ -1323,6 +1323,19 @@ input[type="submit"]:hover {
 	margin-left: 0;
 }
 
+.language {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.language li {
+  display: inline;
+  margin: 0;
+}
+
 /* Block: Audio ------------------------------ */
 
 .wp-block-audio audio {
