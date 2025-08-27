@@ -15,11 +15,14 @@
 				$title = get_the_title();
 				$link = get_the_permalink();
 				?>
+				
 			
 				<li><a href="<?php echo esc_url($link) ?>"><?php echo esc_html($title) ?></a></li>
 
 			<?php endwhile; ?>
 		</ul>
+<?php get_template_part("template-parts/index", "testimonials") ?>
+		
 		<?php wp_reset_postdata(); ?>	
 	<?php endif; ?>
 <?php get_footer() ?>
