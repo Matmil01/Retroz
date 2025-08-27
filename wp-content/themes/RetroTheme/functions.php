@@ -4,7 +4,7 @@ function demo_load_stylesheet() {
 	wp_enqueue_style("main", get_template_directory_uri() . "/style.css");
 }
 add_action("wp_enqueue_scripts", "demo_load_stylesheet");
-
+add_filter('use_block_editor_for_post', '__return_false', 10);
 function demo_theme_setup() {
 	// Title tag function
 	add_theme_support( 'title-tag' );
