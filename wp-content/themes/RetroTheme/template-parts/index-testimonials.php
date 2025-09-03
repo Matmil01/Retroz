@@ -8,7 +8,8 @@
             ?>
 
             <?php if($loop->have_posts()): ?>
-            <?php while($loop->have_posts()): $loop->the_post() ?>
+            <div class="testimonials-list">
+                <?php while($loop->have_posts()): $loop->the_post() ?>
 
 
 <?php
@@ -17,11 +18,12 @@
     $testimonialText = get_field('brodtekst');
 ?>
 
-<section>
+<section class="testimonial">
     <img src="<?php echo esc_url($testimonialImg['url']); ?>" alt="">
     <h1><?php echo esc_html($testimonialName); ?></h1>
     <p><?php echo esc_html($testimonialText); ?></p>
 </section>
 
 <?php endwhile ?>
+            </div>
 <?php endif ?>
