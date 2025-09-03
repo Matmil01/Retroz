@@ -108,14 +108,14 @@ function pll_register_strings() {
     pll_register_string("Polylang survey","First name");
 	pll_register_string("Polylang survey","Last name");
 	pll_register_string("Polylang survey","Email");
-	pll_register_string("Polylang survey","What’s your age group?");
+	pll_register_string("Polylang survey","Whats your age group?");
 	pll_register_string("Polylang survey","Which retro gaming platforms do you enjoy the most?");
 	pll_register_string("Polylang survey","What are your top 3 favorite retro video games of all time?");
 	pll_register_string("Polylang survey","Which game genres do you enjoy the most?");
 	pll_register_string("Polylang survey","Do you prefer original cartridges/discs, digital copies, or reproductions? Please explain why.");
 	pll_register_string("Polylang survey","How important is owning the original box/manual to you?");
 	pll_register_string("Polylang survey","How often do you usually purchase retro games?");
-	pll_register_string("Polylang survey","What’s your typical budget range when buying retro games?");
+	pll_register_string("Polylang survey","Whats your typical budget range when buying retro games?");
 	pll_register_string("Polylang survey","Where do you usually buy your retro games?");
 	pll_register_string("Polylang survey","What retro games would you love to see available in our webshop?");
 
