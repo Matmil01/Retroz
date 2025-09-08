@@ -1,157 +1,60 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-	<head>
-		<meta charset="<?php bloginfo( 'charset' ); ?>">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" >
-		<link rel="profile" href="http://gmpg.org/xfn/11">
-		<?php wp_head(); ?>
-	</head>
-	
-	<body <?php body_class(); ?>>
+<head>
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <?php wp_head(); ?>
+</head>
+<body <?php body_class(); ?>>
+<?php function_exists('wp_body_open') && wp_body_open(); ?>
 
-	<ul class="language"><?php pll_the_languages() ?></ul>
+<header class="w-full bg-white text-black border-b border-black">
+    <div class="max-w-6xl mx-auto flex items-center px-6 h-20 gap-10">
 
-		<?php 
-		if ( function_exists( 'wp_body_open' ) ) {
-			wp_body_open(); 
-		}
-		?>
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center gap-3 font-bold text-xl">
+            <?php
+            $logo_id  = get_theme_mod('custom_logo');
+            $logo_url = $logo_id ? wp_get_attachment_image_url( $logo_id, 'full' ) : '';
+            $site_t   = get_bloginfo('name');
+            if ( $logo_url ) {
+                echo '<img src="'.esc_url($logo_url).'" alt="'.esc_attr($site_t).'" class="h-10 w-auto">';
+            } else {
+                echo esc_html( $site_t );
+            }
+            ?>
+        </a>
 
-		<a class="skip-link button" href="#site-content"><?php esc_html_e( 'Skip to the content', 'wilson' ); ?></a>
-	
-		<div class="wrapper">
-	
-			<header class="sidebar" id="site-header">
-							
-				<div class="blog-header">
+        <nav class="flex" aria-label="<?php esc_attr_e('Primary menu','retro'); ?>">
+            <?php
+            if ( has_nav_menu('primary') ) {
+                wp_nav_menu( array(
+                    'theme_location' => 'primary',
+                    'container'      => false,
+                    'menu_class'     => 'flex gap-8 list-none m-0 p-0',
+                    'items_wrap'     => '<ul class="%2$s">%3$s</ul>',
+                    'fallback_cb'    => false,
+                    'link_before'    => '<span class="uppercase tracking-wide text-sm font-semibold hover:text-rose-400 transition-colors">',
+                    'link_after'     => '</span>',
+                ) );
+            } else {
+                echo '<ul class="flex gap-8 list-none m-0 p-0">';
+                wp_list_pages( array( 'title_li' => '' ) );
+                echo '</ul>';
+            }
+            ?>
+        </nav>
 
-					<?php 
+        <ul class="flex items-center gap-4 ml-auto">
+            <?php if ( function_exists('pll_the_languages') ) {
+                pll_the_languages( array(
+                    'show_flags'    => 0,
+                    'show_names'    => 1,
+                    'hide_if_empty' => 0
+                ) );
+            } ?>
+        </ul>
 
-					$custom_logo_id 	= get_theme_mod( 'custom_logo' );
-					$legacy_logo_url 	= get_theme_mod( 'wilson_logo' );
+    </div>
+</header>
 
-					$blog_title 		= get_bloginfo( 'title' );
-					$blog_description 	= get_bloginfo( 'description' );
-
-					$blog_title_elem 	= ( ( is_front_page() || is_home() ) && ! is_page() ) ? 'h1' : 'div';
-					
-					if ( $custom_logo_id || $legacy_logo_url ) : 
-
-						$custom_logo_url = $custom_logo_id ? wp_get_attachment_image_url( $custom_logo_id, 'full' ) : $legacy_logo_url;
-					
-						?>
-					
-						<<?php echo $blog_title_elem; ?> class="blog-logo">
-						
-							<a href="<?php echo esc_url( home_url( "/" ) ); ?>" rel="home">
-								<img src="<?php echo esc_url( $custom_logo_url ); ?>">
-								<?php if ( $blog_title ) : ?>
-									<span class="screen-reader-text"><?php echo $blog_title; ?></span>
-								<?php endif; ?>
-							</a>
-							
-						</<?php echo $blog_title_elem; ?>><!-- .blog-logo -->
-				
-					<?php elseif ( $blog_title || $blog_description ) : ?>
-				
-						<div class="blog-info">
-						
-							<?php if ( $blog_title ) : ?>
-								<<?php echo $blog_title_elem; ?> class="blog-title">
-									<a href="<?php echo esc_url( home_url() ); ?>" rel="home"><?php echo $blog_title; ?></a>
-								</<?php echo $blog_title_elem; ?>>
-							<?php endif; ?>
-							
-							<?php if ( $blog_description ) : ?>
-								<p class="blog-description"><?php echo $blog_description; ?></p>
-							<?php endif; ?>
-						
-						</div><!-- .blog-info -->
-						
-					<?php endif; ?>
-
-				</div><!-- .blog-header -->
-				
-				<div class="nav-toggle toggle">
-				
-					<p>
-						<span class="show"><?php _e( 'Show menu', 'wilson' ); ?></span>
-						<span class="hide"><?php _e( 'Hide menu', 'wilson' ); ?></span>
-					</p>
-				
-					<div class="bars">
-							
-						<div class="bar"></div>
-						<div class="bar"></div>
-						<div class="bar"></div>
-						
-						<div class="clear"></div>
-						
-					</div><!-- .bars -->
-				
-				</div><!-- .nav-toggle -->
-				
-				<div class="blog-menu">
-			
-					<ul class="navigation">
-					
-						<?php 
-						
-						if ( has_nav_menu( 'primary' ) ) {
-
-							$menu_args = array( 
-								'container'      => '',
-								'items_wrap'     => '%3$s',
-								'theme_location' => 'primary', 
-							);
-
-							wp_nav_menu( $menu_args ); 
-                            
-                        } else {
-
-							$list_pages_args = array(
-								'container' => '',
-								'title_li'  => ''
-							);
-
-							wp_list_pages( $list_pages_args );
-							
-						}
-
-						?>
-												
-					</ul><!-- .navigation -->
-				</div><!-- .blog-menu -->
-				
-				<div class="mobile-menu">
-						 
-					<ul class="navigation">
-					
-						<?php
-						if ( has_nav_menu( 'primary' ) ) {
-                            wp_nav_menu( $menu_args ); 
-                        } else {
-                            wp_list_pages( $list_pages_args );
-						}
-						?>
-						
-					</ul>
-					 
-				</div><!-- .mobile-menu -->
-				
-				<?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
-
-					<div class="widgets" role="complementary">
-					
-						<?php dynamic_sidebar( 'sidebar' ); ?>
-						
-					</div><!-- .widgets -->
-					
-				<?php endif; ?>
-									
-			</header><!-- .sidebar -->
-
-			<main class="content" id="site-content">
-				<div class="post">
-					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-						<div class="post-inner">
+<main id="site-content" class="max-w-6xl mx-auto px-6 py-10">
