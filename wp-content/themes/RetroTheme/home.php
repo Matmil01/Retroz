@@ -37,7 +37,7 @@
 								<?php endif; ?>
 							</div>
 						</p>
-						<a href="<?php echo esc_url($url); ?>" class="btn btn-primary">
+						<a href="<?php echo esc_url($url); ?>" class="btn btn-primary 3xl-text-sm !text-red-500">
 							Read more
 						</a>
 					</div>
