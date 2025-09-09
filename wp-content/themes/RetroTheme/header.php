@@ -33,7 +33,7 @@
                     'menu_class'     => 'flex gap-8 list-none m-0 p-0 font-main',
                     'items_wrap'     => '<ul class="%2$s">%3$s</ul>',
                     'fallback_cb'    => false,
-                    'link_before'    => '<span class="uppercase tracking-wide font-main">',
+                    'link_before'    => '<span class="tracking-wide font-main">',
                     'link_after'     => '</span>',
                 ) );
             } else {
@@ -44,15 +44,23 @@
             ?>
         </nav>
 
-        <ul class="flex items-center gap-4 ml-auto font-main">
+        <div class="flex items-center gap-4 ml-auto font-main">
             <?php if ( function_exists('pll_the_languages') ) {
-                pll_the_languages( array(
+                $languages = pll_the_languages(array(
                     'show_flags'    => 0,
                     'show_names'    => 1,
-                    'hide_if_empty' => 0
-                ) );
+                    'hide_if_empty' => 0,
+                    'raw'           => 1
+                ));
+                
+                if ($languages) {
+                    foreach ($languages as $code => $language) {
+                        $flag = $code === 'en' ? '🇬🇧' : '🇩🇰';
+                        echo '<a href="' . esc_url($language['url']) . '" class="text-lg">' . $flag . '</a>';
+                    }
+                }
             } ?>
-        </ul>
+        </div>
 
     </div>
 </header>

@@ -14,6 +14,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 :root {
 --font-headline: 'VT323', monospace;
 --font-main: 'Space Mono', monospace;
+
 }
 
 body {
@@ -28,13 +29,7 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   color: #FFFFFF;
-  text-decoration: underline;
-  transition: color 0.5s;
-}
-
-a:hover,
-a:focus {
-  color: #FF0000;
+  text-decoration: none
 }
 
 /* BACKGROUND */
