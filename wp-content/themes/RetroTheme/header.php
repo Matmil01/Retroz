@@ -11,15 +11,18 @@
 <header class="w-full">
     <div class="max-w-6xl mx-auto flex items-center px-6 h-20 gap-10 font-main">
 
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center gap-3 font-main">
-            <?php
-            // Memory Karl
-            echo file_get_contents(get_template_directory() . '/icons/MemoryKarl.svg');
-            ?>
-            <span class="font-headline text-xl font-bold">
-                <?php echo esc_html( get_bloginfo('name') ); ?>
-            </span>
-        </a>
+<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center gap-3 font-main">
+    <span class="logo-icon w-20 h-20 inline-flex items-center justify-center">
+        <?php
+        // Memory Karl
+        echo file_get_contents(get_template_directory() . '/icons/MemoryKarl.svg');
+        ?>
+    </span>
+    <span class="logo-text font-headline text-2xl">
+        <?php echo esc_html( get_bloginfo('name') ); ?>
+    </span>
+</a>
+
 
         <nav class="flex font-main" aria-label="<?php esc_attr_e('Primary menu','retro'); ?>">
             <?php
