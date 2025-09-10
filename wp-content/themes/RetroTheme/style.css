@@ -19,18 +19,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 body {
   font-family: var(--font-main);
-  color: #FFFFFF;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-headline);
-  color: #FFFFFF;
-}
 
-a {
-  color: #FFFFFF;
-  text-decoration: none
-}
+
 
 /* BACKGROUND */
 body {

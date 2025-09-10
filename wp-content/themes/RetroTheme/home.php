@@ -12,8 +12,8 @@
             $tags = get_the_tags();
         ?>
             <div class="rounded-lg shadow p-6 flex flex-col justify-between font-main" style="background-color: #D6D6D6;">
-                <h2 class="text-xl font-bold mb-2">
-                    <a href="<?php echo esc_url($url); ?>" class="text-black">
+                <h2 class="text-2xl font-bold mb-2">
+                    <a href="<?php echo esc_url($url); ?>" class="text-black hover:text-gray-700">
                         <?php echo esc_html($title); ?>
                     </a>
                 </h2>
@@ -31,14 +31,14 @@
                 <div class="flex flex-wrap gap-2 mb-4">
                     <?php if ($tags): ?>
                         <?php foreach ($tags as $tag): ?>
-                            <a href="<?php echo get_tag_link($tag->term_id); ?>" class="px-2 py-1 rounded text-black font-main text-xs" style="background-color: #2563EB;">
+                            <a href="<?php echo get_tag_link($tag->term_id); ?>" class="px-2 py-1 rounded text-white font-main text-xs" style="background-color: #2563EB;">
                                 <?php echo $tag->name; ?>
                             </a>
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </div>
                 <div class="flex justify-center">
-                    <a href="<?php echo esc_url($url); ?>" class="mt-4 inline-block px-4 py-2 rounded text-black font-main" style="background-color: #4D4284;">
+                    <a href="<?php echo esc_url($url); ?>" class="mt-4 inline-block px-4 py-2 rounded text-white font-main" style="background-color: #4D4284;">
                         READ MORE
                     </a>
                 </div>
