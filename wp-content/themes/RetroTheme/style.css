@@ -17,6 +17,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headline);
+ 
+}
+
 body {
   font-family: var(--font-main);
 }
@@ -28,6 +33,7 @@ body {
 
 }
 
+/* REMOVING STUPID WORDPRESS STYLING */
 input:focus, textarea:focus, select:focus {
     outline: 2px solid #6C619E !important;
     outline-offset: 2px;

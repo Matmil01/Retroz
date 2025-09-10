@@ -18,9 +18,9 @@
         echo file_get_contents(get_template_directory() . '/icons/MemoryKarl.svg');
         ?>
     </span>
-    <span class="logo-text font-headline text-2xl text-white">
+    <h1 class="logo-text font-headline text-4xl text-white">
         <?php echo esc_html( get_bloginfo('name') ); ?>
-    </span>
+    </h1> 
 </a>
 
 
