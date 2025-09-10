@@ -49,3 +49,18 @@ header .flex a {
     border-bottom: none !important;
 }
 
+header nav .current-menu-item a {
+    color: #6C619E !important;
+}
+
+header nav ul li.current-menu-item a {
+    color: #6C619E !important;
+    text-decoration: underline !important; 
+    border-bottom: none !important; 
+}
+
+header nav a[href='/'] {
+    color: #6C619E !important;
+    text-decoration: underline !important;
+}
+
