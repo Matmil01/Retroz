@@ -33,3 +33,19 @@ input:focus, textarea:focus, select:focus {
     outline-offset: 2px;
 }
 
+header nav a {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+header nav a:focus, header nav a:active {
+    outline: none !important;
+    box-shadow: none !important;
+    border-bottom: none !important;
+}
+
+header .flex a {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
