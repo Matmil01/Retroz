@@ -1,28 +1,22 @@
 <?php get_header() ?>
-	<?php
-	$loop = new WP_Query(array(
-		"post_type" => "movie",
-		"posts_per_page" => -1,
-		"orderby" => "title",
-		"order" => "ASC"
-	));
-	?>
-	<?php if($loop->have_posts()): ?>
-		<ul>
-			<?php while($loop->have_posts()): $loop->the_post(); ?>
 
-				<?php
-				$title = get_the_title();
-				$link = get_the_permalink();
-				?>
-				
-			
-				<li><a href="<?php echo esc_url($link) ?>"><?php echo esc_html($title) ?></a></li>
+<?php
+			$heroImg = get_field("heroImg");
+			?>
 
-			<?php endwhile; ?>
-		</ul>
+	<?php if(have_posts()): ?>
+		<?php while(have_posts()): the_post(); ?>
+				<?php if($heroImg): ?>
+					<img class="!max-w-full" src="<?php echo esc_url($heroImg['url']) ?>" alt="">
+				<?php endif; ?>
+			<div><?php the_content(); ?></div>
+		<?php endwhile; ?>
+	<?php endif; ?>
+
+		<?php get_template_part("template-parts/index", "deals") ?>
 		
-		<?php wp_reset_postdata(); ?>	
-		<?php endif; ?>
+		<?php get_template_part("template-parts/index", "categories") ?>
+
 		<?php get_template_part("template-parts/index", "testimonials") ?>
+
 <?php get_footer() ?>
