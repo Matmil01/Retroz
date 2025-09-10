@@ -15,7 +15,7 @@
             
             $short_excerpt = wp_trim_words($excerpt, 40, '...');
         ?>
-            <div class="rounded-lg shadow overflow-hidden flex flex-col justify-between font-main" style="background-color: #D6D6D6;">
+            <div class="rounded-lg shadow overflow-hidden flex flex-col justify-between font-main" style="background-color: #D9D9D9;">
                 <?php if (has_post_thumbnail()): ?>
                     <div class="w-full aspect-[16/9]">
                         <a href="<?php echo esc_url($url); ?>">
@@ -34,24 +34,19 @@
                         <?php echo esc_html($date); ?> | <?php echo esc_html($author); ?>
                     </p>
                     
-                    <div class="rounded-lg p-3 text-white text-sm" style="background-color: #9A9A9A;">
+                    <div class="rounded-lg p-3 text-white text-sm" style="background-color: #B3B3B3;">
                         <?php echo esc_html($short_excerpt); ?>
                     </div>
                     
                     <div class="flex flex-wrap gap-1">
                         <?php 
                         if ($tags):
-                            // Show only the first 2 tags
-                            $tag_count = 0;
                             foreach ($tags as $tag):
-                                if ($tag_count < 2):
                         ?>
-                                <a href="<?php echo get_tag_link($tag->term_id); ?>" class="px-2 py-1 rounded text-white font-main text-xs" style="background-color: #2563EB;">
+                                <a href="<?php echo get_tag_link($tag->term_id); ?>" class="px-1.5 py-0.5 rounded text-white font-main text-xs" style="background-color: #2563EB;">
                                     <?php echo $tag->name; ?>
                                 </a>
                         <?php
-                                endif;
-                                $tag_count++;
                             endforeach;
                         endif; 
                         ?>
