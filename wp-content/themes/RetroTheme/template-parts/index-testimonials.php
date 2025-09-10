@@ -8,7 +8,7 @@
             ?>
 
             <?php if($loop->have_posts()): ?>
-            <div class="testimonials-list">
+            <div class="testimonials-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <?php while($loop->have_posts()): $loop->the_post() ?>
 
 
@@ -18,12 +18,14 @@
     $testimonialText = get_field('brodtekst');
 ?>
 
-<section class="testimonial">
-    <img src="<?php echo esc_url($testimonialImg['url']); ?>" alt="">
-    <h1><?php echo esc_html($testimonialName); ?></h1>
-    <p><?php echo esc_html($testimonialText); ?></p>
+<section class="testimonial bg-[#D9D9D9] p-4 flex flex-col items-center text-center">
+    <img class="h-69" src="<?php echo esc_url($testimonialImg['url']); ?>" alt="">
+    <div class="bg-[#B3B3B3] mt-4 px-8">
+        <h1 class=""><?php echo esc_html($testimonialName); ?></h1>
+        <p class=""><?php echo esc_html($testimonialText); ?></p>
+    </div>
 </section>
 
 <?php endwhile ?>
-            </div>
+</div>
 <?php endif ?>
