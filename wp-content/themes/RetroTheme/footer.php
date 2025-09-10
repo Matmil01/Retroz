@@ -1,7 +1,7 @@
 </main> <!-- Close the main content area that was opened in header.php -->
 
 <footer class="w-full py-8">
-    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between font-main">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between font-main text-white">
         <p>© <?php echo date('Y'); ?> Team Skærebært</p>
         <div class="flex items-center gap-8">
             <a href="https://instagram.com" target="_blank" rel="noopener" class="w-8 h-8">

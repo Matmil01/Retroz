@@ -8,6 +8,9 @@ function demo_theme_setup() {
 	// Title tag function
 	add_theme_support( 'title-tag' );
 
+	// Add support for featured images (thumbnails)
+	add_theme_support( 'post-thumbnails' );
+
 	// Add nav menu
 	register_nav_menu("primary", __("Primary Menu", "mmd-demo"));
 }
