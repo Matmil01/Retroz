@@ -1,0 +1,39 @@
+/*
+Theme Name: Retro Theme
+Text Domain: Retro Theme
+Version: 1.0
+Description: 
+Author: Team Skærebært
+License: GNU General Public License version 2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap');
+
+/* FONTS */
+:root {
+--font-headline: 'VT323', monospace;
+--font-main: 'Space Mono', monospace;
+
+}
+
+body {
+  font-family: var(--font-main);
+  color: #FFFFFF;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headline);
+  color: #FFFFFF;
+}
+
+a {
+  color: #FFFFFF;
+  text-decoration: none
+}
+
+/* BACKGROUND */
+body {
+  background: linear-gradient(#000000 0%, #6C619E 100%);
+
+}

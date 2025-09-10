@@ -1,30 +1,22 @@
-<footer class="w-full border-t border-black">
-    <?php if ( is_active_sidebar( 'footer-a' ) || is_active_sidebar( 'footer-b' ) ) : ?>
-        <div class="footer-widgets group flex flex-row flex-wrap gap-10 items-start">
-            <?php if ( is_active_sidebar( 'footer-a' ) ) : ?>
-                <div class="column column-1 left flex-1 min-w-[240px]">
-                    <?php dynamic_sidebar( 'footer-a' ); ?>
-                </div>
-            <?php endif; ?>
-            <?php if ( is_active_sidebar( 'footer-b' ) ) : ?>
-                <div class="column column-2 left flex-1 min-w-[240px]">
-                    <?php dynamic_sidebar( 'footer-b' ); ?>
-                </div>
-            <?php endif; ?>
-        </div>
-    <?php endif; ?>
+</main> <!-- Close the main content area that was opened in header.php -->
 
-    <div class="credits flex flex-row flex-wrap items-center gap-6 mt-8">
-        <p class="credits-left m-0">&copy; <?php echo date( 'Y' ); ?> <a href="<?php echo esc_url( home_url() ); ?>"><?php bloginfo( 'name' ); ?></a></p>
-        <p class="credits-right m-0 flex items-center gap-2">
-            <span><?php printf( __( 'Theme by %s', 'wilson'), '<a href="https://andersnoren.se">Anders Nor&eacute;n</a>' ); ?></span>
-            <a class="tothetop uppercase tracking-wide text-xs" href="#site-header"><?php _e( 'Up', 'wilson' ); ?> &uarr;</a>
-        </p>
+<footer class="w-full py-8">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between font-main">
+        <p>© <?php echo date('Y'); ?> Team Skærebært</p>
+        <div class="flex items-center gap-8">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="w-8 h-8">
+                <?php echo file_get_contents(get_template_directory() . '/icons/instagram.svg'); ?>
+            </a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener" class="w-8 h-8">
+                <?php echo file_get_contents(get_template_directory() . '/icons/tiktok.svg'); ?>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="w-8 h-8">
+                <?php echo file_get_contents(get_template_directory() . '/icons/youtube.svg'); ?>
+            </a>
+        </div>
     </div>
 </footer>
 
-</main>
-</div>
 <?php wp_footer(); ?>
 </body>
 </html>
