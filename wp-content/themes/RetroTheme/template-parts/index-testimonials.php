@@ -1,3 +1,4 @@
+<h1>testimoz</h1>
 <?php
             $arguments = array(
                 "post_type" => "testimonial",
