@@ -1,3 +1,6 @@
+<?php
+// Template Name: Sustainability Initiatives Page
+?>
 <?php get_header(); ?>
 
     <?php if(have_posts()): ?>
