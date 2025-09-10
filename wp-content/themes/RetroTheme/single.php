@@ -10,31 +10,42 @@
             $categories = get_the_category();
             $tags = get_the_tags();
             ?>
+            
+            <h1 class="text-4xl font-bold mb-6 text-white font-headline"><?php echo esc_html($title); ?></h1>
 
-            <article class="prose w-full">
-                <h1 class="text-3xl font-bold mb-2"><?php echo esc_html($title); ?></h1>
-                <p class="text-gray-600 mb-6">
-                    <?php echo esc_html($date); ?> | <?php echo esc_html($author); ?> | Category: 
-                    <?php if($categories): ?>
-                        <?php foreach($categories as $category): ?>
-                            <a href="<?php echo get_category_link($category->term_id); ?>" class="text-blue-600 hover:underline"><?php echo $category->name; ?></a>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                </p>
-                <div>
-                    <?php echo $content; ?>
-                    <div class="mt-6">
-                        <?php if($tags): ?>
-                            <?php foreach($tags as $tag): ?>
-                                <a href="<?php echo get_tag_link($tag->term_id); ?>" class="inline-block bg-blue-500 text-white text-sm px-3 py-1 rounded-full mr-2 mb-2"><?php echo $tag->name; ?></a>
+            <div class="rounded-lg overflow-hidden" style="background-color: #D6D6D6;">
+                <?php if (has_post_thumbnail()): ?>
+                    <div class="w-full not-prose">
+                        <?php the_post_thumbnail('large', ['class' => 'w-full h-auto']); ?>
+                    </div>
+                <?php endif; ?>
+
+                <article class="prose max-w-none p-8 text-black">
+                    <p class="text-gray-600 mb-6">
+                        <?php echo esc_html($date); ?> | <?php echo esc_html($author); ?> | Category: 
+                        <?php if($categories): ?>
+                            <?php foreach($categories as $category): ?>
+                                <a href="<?php echo get_category_link($category->term_id); ?>" class="text-black font-semibold hover:text-rose-700"><?php echo $category->name; ?></a>
                             <?php endforeach; ?>
                         <?php endif; ?>
+                    </p>
+                    <div class="text-black">
+                        <?php echo $content; ?>
+                        <div class="mt-6">
+                            <?php if($tags): ?>
+                                <?php foreach($tags as $tag): ?>
+                                    <a href="<?php echo get_tag_link($tag->term_id); ?>" class="inline-block text-white text-sm px-3 py-1 rounded-full mr-2 mb-2" style="background-color: #4D4284;"><?php echo $tag->name; ?></a>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
+            </div>
 
             <?php if(comments_open() || get_comments_number()): ?>
-                <?php comments_template(); ?>
+                <div class="mt-8">
+                    <?php comments_template(); ?>
+                </div>
             <?php endif; ?>
         
         <?php endwhile; ?>

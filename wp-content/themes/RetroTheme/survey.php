@@ -75,7 +75,7 @@
         </div>
 
         <div>
-            <input type="submit" value="Send" class="w-full bg-[#6C619E] text-white py-2 px-4 rounded-md shadow hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2">
+            <input type="submit" value="Send" class="w-full bg-[#6C619E] text-white py-2 px-4 rounded-md shadow hover:bg-[#4D4284] focus:outline-none focus:ring-2 focus:ring-offset-2">
         </div>
     </form>
 </div>
