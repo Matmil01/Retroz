@@ -11,7 +11,7 @@
             $tags = get_the_tags();
             ?>
             
-            <h1 class="text-4xl font-bold mb-6 text-white font-headline"><?php echo esc_html($title); ?></h1>
+            <h1 class="text-8xl font-bold mb-6 text-white font-headline"><?php echo esc_html($title); ?></h1>
 
             <div class="rounded-lg overflow-hidden" style="background-color: #D6D6D6;">
                 <?php if (has_post_thumbnail()): ?>
@@ -25,7 +25,7 @@
                         <?php echo esc_html($date); ?> | <?php echo esc_html($author); ?> | Category: 
                         <?php if($categories): ?>
                             <?php foreach($categories as $category): ?>
-                                <a href="<?php echo get_category_link($category->term_id); ?>" class="text-black font-semibold hover:text-rose-700"><?php echo $category->name; ?></a>
+                                <a href="<?php echo get_category_link($category->term_id); ?>" class="text-black font-semibold"><?php echo $category->name; ?></a>
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </p>
@@ -34,7 +34,9 @@
                         <div class="mt-6">
                             <?php if($tags): ?>
                                 <?php foreach($tags as $tag): ?>
-                                    <a href="<?php echo get_tag_link($tag->term_id); ?>" class="inline-block text-white text-sm px-3 py-1 rounded-full mr-2 mb-2" style="background-color: #4D4284;"><?php echo $tag->name; ?></a>
+                                    <a href="<?php echo get_tag_link($tag->term_id); ?>" class="inline-block text-white text-xs px-3 py-1 rounded-full mr-2 mb-2" style="background-color: #2563EB;">
+                                        <?php echo $tag->name; ?>
+                                    </a>
                                 <?php endforeach; ?>
                             <?php endif; ?>
                         </div>

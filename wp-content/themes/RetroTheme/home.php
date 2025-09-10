@@ -52,7 +52,7 @@
                         ?>
                     </div>
                     <div class="flex justify-center pt-1">
-                        <a href="<?php echo esc_url($url); ?>" class="inline-block px-3 py-1 rounded text-white font-main text-xs" style="background-color: #4D4284;">
+                        <a href="<?php echo esc_url($url); ?>" class="bg-[#6C619E] text-white py-2 px-4 rounded-md shadow hover:bg-[#4D4284] focus:outline-none focus:ring-2 focus:ring-offset-2">
                             READ MORE
                         </a>
                     </div>
