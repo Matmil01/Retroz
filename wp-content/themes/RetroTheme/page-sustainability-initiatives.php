@@ -19,7 +19,7 @@
                     </div>
                 <article class="prose max-w-none p-8 text-black">
                     <div class="text-black">
-                        <?php echo $content; ?>
+                        <?php echo apply_filters('the_content', $content); ?>
                     </div>
                 </article>
                 <?php endif; ?>
