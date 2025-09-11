@@ -19,7 +19,7 @@
                 <?php if (has_post_thumbnail()): ?>
                     <div class="max-w-full aspect-[16/9]">
                         <a href="<?php echo esc_url($url); ?>">
-                            <?php the_post_thumbnail('medium', ['class' => 'w-full h-full object-cover']); ?>
+                            <?php the_post_thumbnail('large', ['class' => 'w-full h-full object-cover']); ?>
                         </a>
                     </div>
                 <?php endif; ?>
@@ -43,7 +43,7 @@
                         if ($tags):
                             foreach ($tags as $tag):
                         ?>
-                                <a href="<?php echo get_tag_link($tag->term_id); ?>" class="tagFucker px-1.5 py-0.5 rounded text-white bg-[#4D4284] font-main text-xs" style="">
+                                <a href="<?php echo get_tag_link($tag->term_id); ?>" class="tagFucker px-1.5 py-0.5 rounded text-white bg-[#4D4284] font-main text-xs">
                                     <?php echo $tag->name; ?>
                                 </a>
                         <?php
