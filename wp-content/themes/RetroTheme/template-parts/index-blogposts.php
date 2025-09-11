@@ -21,9 +21,9 @@
             
             $short_excerpt = wp_trim_words($excerpt, 40, '...');
         ?>
-            <div class="rounded-lg shadow overflow-hidden flex flex-col justify-between font-main" style="background-color: #D9D9D9;">
+            <div class="rounded-lg shadow overflow-hidden flex flex-col font-main" style="background-color: #D9D9D9;">
                 <?php if (has_post_thumbnail()): ?>
-                    <div class="w-full aspect-[16/9]">
+                    <div class="max-w-full aspect-[16/9]">
                         <a href="<?php echo esc_url($url); ?>">
                             <?php the_post_thumbnail('medium', ['class' => 'w-full h-full object-cover']); ?>
                         </a>
@@ -49,7 +49,7 @@
                         if ($tags):
                             foreach ($tags as $tag):
                         ?>
-                                <a href="<?php echo get_tag_link($tag->term_id); ?>" class="px-1.5 py-0.5 rounded text-white font-main text-xs" style="background-color: #2563EB;">
+                                <a href="<?php echo get_tag_link($tag->term_id); ?>" class="px-1.5 py-0.5 rounded text-white bg-[#4D4284] font-main text-xs">
                                     <?php echo $tag->name; ?>
                                 </a>
                         <?php

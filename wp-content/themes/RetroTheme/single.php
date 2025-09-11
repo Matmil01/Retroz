@@ -34,7 +34,7 @@
                         <div class="mt-6">
                             <?php if($tags): ?>
                                 <?php foreach($tags as $tag): ?>
-                                    <a href="<?php echo get_tag_link($tag->term_id); ?>" class="inline-block text-white text-xs px-3 py-1 rounded-full mr-2 mb-2" style="background-color: #2563EB;">
+                                    <a href="<?php echo get_tag_link($tag->term_id); ?>" class="inline-block text-white bg-[#4D4284] text-xs px-3 py-1 rounded-full mr-2 mb-2">
                                         <?php echo $tag->name; ?>
                                     </a>
                                 <?php endforeach; ?>
