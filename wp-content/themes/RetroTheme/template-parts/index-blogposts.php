@@ -25,7 +25,7 @@
                 <?php if (has_post_thumbnail()): ?>
                     <div class="max-w-full aspect-[16/9]">
                         <a href="<?php echo esc_url($url); ?>">
-                            <?php the_post_thumbnail('medium', ['class' => 'w-full h-full object-cover']); ?>
+                            <?php the_post_thumbnail('large', ['class' => 'w-full h-full object-cover']); ?>
                         </a>
                     </div>
                 <?php endif; ?>
