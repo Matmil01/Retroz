@@ -17,13 +17,17 @@
                     <div class="w-full not-prose">
                         <?php the_post_thumbnail('large', ['class' => 'w-full h-auto']); ?>
                     </div>
+                    <?php endif; ?>
                 <article class="prose max-w-none p-8 text-black">
                     <div class="text-black">
                         <?php echo apply_filters('the_content', $content); ?>
                     </div>
+                    <div class="w-full flex justify-center mt-8">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/QBsjGOhNypg?si=NJNqx-U64LdoXO01" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                 </article>
-                <?php endif; ?>
         <?php endwhile; ?>
     <?php endif; ?>
+
 
 <?php get_footer(); ?>
