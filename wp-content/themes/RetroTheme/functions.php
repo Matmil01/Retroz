@@ -69,6 +69,7 @@ function surveyFunction() {
 	$question8 = $_REQUEST["question8"];
 	$question9 = $_REQUEST["question9"];
 	$question10 = $_REQUEST["question10"];
+	$topics = isset($_REQUEST["topics"]) ? array_map('intval', $_REQUEST["topics"]) : [];
 
 
 	$subject = "Thank you for taking our survey!";
@@ -97,7 +98,7 @@ function surveyFunction() {
 	update_field("question8", $question8, $surveytaker);
 	update_field("question9", $question9, $surveytaker);
 	update_field("question10", $question10, $surveytaker);
-
+	update_field("topics", $topics, $surveytaker);
 	
 	wp_mail($email, $subject, $message);
 	wp_redirect(get_permalink(get_page_by_path("thank-you")));
