@@ -98,7 +98,7 @@ function surveyFunction() {
 	update_field("question8", $question8, $surveytaker);
 	update_field("question9", $question9, $surveytaker);
 	update_field("question10", $question10, $surveytaker);
-	update_field("topics", $topics, $surveytaker);
+	update_field("topics", $topics, $surveytaker); 
 	
 	wp_mail($email, $subject, $message);
 	wp_redirect(get_permalink(get_page_by_path("thank-you")));
