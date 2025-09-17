@@ -160,6 +160,7 @@ return array(
     'WindPress\\WindPress\\Api\\Admin\\Settings\\License' => $baseDir . '/src/Api/Admin/Settings/License.php',
     'WindPress\\WindPress\\Api\\Admin\\Settings\\Options' => $baseDir . '/src/Api/Admin/Settings/Options.php',
     'WindPress\\WindPress\\Api\\Admin\\Tailwind' => $baseDir . '/src/Api/Admin/Tailwind.php',
+    'WindPress\\WindPress\\Api\\Admin\\ThemeJson' => $baseDir . '/src/Api/Admin/ThemeJson.php',
     'WindPress\\WindPress\\Api\\Admin\\Volume' => $baseDir . '/src/Api/Admin/Volume.php',
     'WindPress\\WindPress\\Api\\ApiInterface' => $baseDir . '/src/Api/ApiInterface.php',
     'WindPress\\WindPress\\Api\\Router' => $baseDir . '/src/Api/Router.php',

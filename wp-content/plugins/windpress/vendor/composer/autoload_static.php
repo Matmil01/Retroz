@@ -264,6 +264,7 @@ class ComposerStaticInit1def3dde66265cb95fde211f809622aa
         'WindPress\\WindPress\\Api\\Admin\\Settings\\License' => __DIR__ . '/../..' . '/src/Api/Admin/Settings/License.php',
         'WindPress\\WindPress\\Api\\Admin\\Settings\\Options' => __DIR__ . '/../..' . '/src/Api/Admin/Settings/Options.php',
         'WindPress\\WindPress\\Api\\Admin\\Tailwind' => __DIR__ . '/../..' . '/src/Api/Admin/Tailwind.php',
+        'WindPress\\WindPress\\Api\\Admin\\ThemeJson' => __DIR__ . '/../..' . '/src/Api/Admin/ThemeJson.php',
         'WindPress\\WindPress\\Api\\Admin\\Volume' => __DIR__ . '/../..' . '/src/Api/Admin/Volume.php',
         'WindPress\\WindPress\\Api\\ApiInterface' => __DIR__ . '/../..' . '/src/Api/ApiInterface.php',
         'WindPress\\WindPress\\Api\\Router' => __DIR__ . '/../..' . '/src/Api/Router.php',

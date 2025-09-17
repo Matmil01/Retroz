@@ -206,6 +206,7 @@ class Runtime
             $metadata['_wpnonce'] = wp_create_nonce(WIND_PRESS::WP_OPTION);
             $metadata['rest_api'] = ['nonce' => wp_create_nonce('wp_rest'), 'root' => esc_url_raw(rest_url()), 'namespace' => WIND_PRESS::REST_NAMESPACE, 'url' => esc_url_raw(rest_url(WIND_PRESS::REST_NAMESPACE))];
             $metadata['site_meta'] = ['name' => get_bloginfo('name'), 'site_url' => get_site_url(), 'web_history' => AdminPage::get_page_url()];
+            $metadata['is_debug'] = defined('WP_DEBUG') && \WP_DEBUG;
         }
         return $metadata;
     }

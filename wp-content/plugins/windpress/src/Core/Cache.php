@@ -11,6 +11,7 @@
 declare (strict_types=1);
 namespace WindPress\WindPress\Core;
 
+use Exception;
 use WIND_PRESS;
 use WindPress\WindPress\Utils\Cache as UtilsCache;
 use WindPress\WindPress\Utils\Common;
@@ -23,6 +24,7 @@ class Cache
      * @var string
      */
     public const CSS_CACHE_FILE = 'tailwind.css';
+    public const THEME_JSON_FILE = 'theme.json';
     public static function get_providers(): array
     {
         /**
@@ -49,6 +51,16 @@ class Cache
         do_action('a!windpress/core/cache:save_cache.after', $payload);
         UtilsCache::flush_cache_plugin();
     }
+    public static function save_theme_json(string $payload)
+    {
+        try {
+            Common::save_file($payload, self::get_cache_path(self::THEME_JSON_FILE));
+        } catch (\Throwable $throwable) {
+            throw $throwable;
+        }
+        do_action('a!windpress/core/cache:save_theme_json.after', $payload);
+        UtilsCache::flush_cache_plugin();
+    }
     public static function fetch_contents($callback, $metadata = [])
     {
         // if class has an "__invoke" method.
@@ -58,7 +70,7 @@ class Cache
         try {
             $result = call_user_func($callback, $metadata);
             if (!is_array($result)) {
-                throw new \Exception(__('The callback should return an array', 'windpress'));
+                throw new Exception(__('The callback should return an array', 'windpress'));
             }
             $_metadata = array_key_exists('metadata', $result) ? $result['metadata'] : [];
             $_contents = array_key_exists('contents', $result) ? $result['contents'] : $result;

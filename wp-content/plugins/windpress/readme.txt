@@ -4,7 +4,7 @@ Donate link: https://ko-fi.com/Q5Q75XSF7
 Tags: tailwind, tailwindcss, tailwind css
 Requires at least: 6.0
 Tested up to: 6.8
-Stable tag: 3.2.59
+Stable tag: 3.2.62
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -19,7 +19,7 @@ WindPress is a platform agnostic [Tailwind CSS](https://tailwindcss.com/) integr
 
 **Tailwind CSS version**:
 - 3.4.17
-- 4.1.12
+- 4.1.13
 
 ### Features
 
@@ -124,6 +124,17 @@ Note: The Pro version has a version number with one higher minor version than th
 For instance:
 Free version 1.**0**.4
 Pro version 1.**1**.4
+
+= 3.2.62 - 2025-09-13 =
+* **Improve**: Improve the File editor performance by register the IntelliSense only once after the editor is initialized
+
+= 3.2.61 - 2025-09-10 =
+* **Fix**: [Bricks] Plain Classes: Doesn't work on some Bricks templates types like Archive, Search, Section, etc
+
+= 3.2.60 - 2025-09-09 =
+* **New**: Upgraded to Tailwind CSS v4 (4.1.13 latest)
+* **New**: [LiveCanvas] Added compatibility with LiveCanvas 4.7
+* **New**: Added integrations settings page to manage the integrations features
 
 = 3.2.59 - 2025-09-01 =
 * **Fix**: [TW3] Missing `/css/preflight.css` file where the Preflight styles are enabled
@@ -438,7 +449,10 @@ Pro version 1.**1**.4
 
 = 1.0.0 - 2024-12-19 =
 * **New**: 🐣 Initial release.
-* [unreleased]: https://github.com/wind-press/windpress/compare/v3.2.59...HEAD
+* [unreleased]: https://github.com/wind-press/windpress/compare/v3.2.62...HEAD
+* [3.2.62]: https://github.com/wind-press/windpress/compare/v3.2.61...v3.2.62
+* [3.2.61]: https://github.com/wind-press/windpress/compare/v3.2.60...v3.2.61
+* [3.2.60]: https://github.com/wind-press/windpress/compare/v3.2.59...v3.2.60
 * [3.2.59]: https://github.com/wind-press/windpress/compare/v3.2.58...v3.2.59
 * [3.2.58]: https://github.com/wind-press/windpress/compare/v3.2.57...v3.2.58
 * [3.2.57]: https://github.com/wind-press/windpress/compare/v3.2.56...v3.2.57

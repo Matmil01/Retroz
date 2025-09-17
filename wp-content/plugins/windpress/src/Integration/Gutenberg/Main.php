@@ -22,7 +22,7 @@ class Main implements IntegrationInterface
     public function __construct()
     {
         add_filter('f!windpress/core/cache:compile.providers', fn(array $providers): array => $this->register_provider($providers));
-        if ($this->is_enabled()) {
+        if ($this->is_enabled() && Config::get(sprintf('integration.%s.editor.enabled', $this->get_name()), \true)) {
             new \WindPress\WindPress\Integration\Gutenberg\Editor();
         }
     }
@@ -36,7 +36,7 @@ class Main implements IntegrationInterface
     }
     public function register_provider(array $providers): array
     {
-        $providers[] = ['id' => $this->get_name(), 'name' => __('Gutenberg', 'windpress'), 'description' => __('Gutenberg/Block Editor integration', 'windpress'), 'callback' => \WindPress\WindPress\Integration\Gutenberg\Compile::class, 'enabled' => $this->is_enabled(), 'type' => 'custom', 'homepage' => 'https://wordpress.org/gutenberg/?ref=windpress', 'is_installed_active' => static function () {
+        $providers[] = ['id' => $this->get_name(), 'name' => __('Gutenberg', 'windpress'), 'description' => __('Gutenberg/Block Editor integration', 'windpress'), 'callback' => Config::get(sprintf('integration.%s.compile.enabled', $this->get_name()), \true) ? \WindPress\WindPress\Integration\Gutenberg\Compile::class : static fn() => [], 'enabled' => $this->is_enabled(), 'type' => 'custom', 'homepage' => 'https://wordpress.org/gutenberg/?ref=windpress', 'is_installed_active' => static function () {
             $is = -1;
             $is += function_exists('register_block_type') ? 1 : 0;
             $is += function_exists('register_block_type') ? 1 : 0;

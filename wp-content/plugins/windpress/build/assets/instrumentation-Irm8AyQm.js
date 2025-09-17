@@ -1,1 +1,0 @@
-class a{start(r){performance.mark(`${r} (start)`)}end(r,e){performance.mark(`${r} (end)`),performance.measure(r,{start:`${r} (start)`,end:`${r} (end)`,detail:e})}hit(r,e){performance.mark(r,{detail:e})}error(r){throw performance.mark("(error)",{detail:{error:`${r}`}}),r}}export{a as I};

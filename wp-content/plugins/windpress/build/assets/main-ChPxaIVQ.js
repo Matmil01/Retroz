@@ -1,1 +1,0 @@
-import{l as a}from"./logger-BTW-zIW3.js";import{p as s}from"./constant-BTThh9s3.js";wp.hooks.addFilter("windpresslivecanvas-autocomplete-items-query","windpresslivecanvas",async(t,o)=>{const e=await s.contentWindow.windpress.module.autocomplete.query(t);return o!==void 0?[...e,...o]:e}),a("Module loaded!",{module:"autocomplete"});
