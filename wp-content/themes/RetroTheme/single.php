@@ -16,7 +16,7 @@
             <div class="rounded-lg overflow-hidden" style="background-color: #D6D6D6;">
                 <?php if (has_post_thumbnail()): ?>
                     <div class="w-full not-prose">
-                        <?php the_post_thumbnail('full', ['class' => 'w-full h-auto']); ?>
+                        <img src="<?php echo get_the_post_thumbnail_url(null, 'full'); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="w-full h-auto" />
                     </div>
                 <?php endif; ?>
 
