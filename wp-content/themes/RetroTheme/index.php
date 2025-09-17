@@ -7,7 +7,7 @@
 	<?php if(have_posts()): ?>
 		<?php while(have_posts()): the_post(); ?>
 				<?php if($heroImg): ?>
-					<img class="!max-w-full" src="<?php echo esc_url($heroImg['url']) ?>" alt="">
+					<img class="!max-w-full" src="<?php echo esc_url($heroImg['url']) ?>" alt="<?php echo esc_attr($heroImg['alt']) ?>" />
 				<?php endif; ?>
 			<div><?php the_content(); ?></div>
 		<?php endwhile; ?>
