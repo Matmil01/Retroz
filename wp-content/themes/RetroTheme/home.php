@@ -19,7 +19,7 @@
                 <?php if (has_post_thumbnail()): ?>
                     <div class="max-w-full aspect-[16/9]">
                         <a href="<?php echo esc_url($url); ?>">
-                            <?php the_post_thumbnail('large', ['class' => 'w-full h-full object-cover']); ?>
+                            <img src="<?php echo get_the_post_thumbnail_url(null, 'large'); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="w-full h-full object-cover" />
                         </a>
                     </div>
                 <?php endif; ?>
