@@ -6,7 +6,7 @@
         "order" => "DESC",
     ));
     ?>
-            <h1>Recent Blogposts</h1>
+            <h3>Recent Blogposts</h3>
         <?php if($loop->have_posts()): ?>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <?php while($loop->have_posts()): $loop->the_post();
