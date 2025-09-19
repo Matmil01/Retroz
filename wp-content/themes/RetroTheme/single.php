@@ -25,7 +25,7 @@
                         <?php echo esc_html($date); ?> | <?php echo esc_html($author); ?> | Category: 
                         <?php if($categories): ?>
                             <?php foreach($categories as $category): ?>
-                                <a href="<?php echo get_category_link($category->term_id); ?>" class="text-black font-semibold"><?php echo $category->name; ?></a>
+                                <a href="<?php echo get_category_link($category->term_id); ?>" class="text-black font-semibold cursor-pointer"><?php echo $category->name; ?></a>
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </p>
@@ -34,7 +34,7 @@
                         <div class="mt-6">
                             <?php if($tags): ?>
                                 <?php foreach($tags as $tag): ?>
-                                    <a href="<?php echo get_tag_link($tag->term_id); ?>" class="inline-block text-white bg-[#4D4284] text-xs px-3 py-1 rounded-full mr-2 mb-2">
+                                    <a href="<?php echo get_tag_link($tag->term_id); ?>" class="inline-block text-white bg-[#4D4284] text-xs px-3 py-1 rounded-full mr-2 mb-2 cursor-pointer">
                                         <?php echo $tag->name; ?>
                                     </a>
                                 <?php endforeach; ?>

@@ -98,7 +98,7 @@
             'email' => '<div class="comment-form-email mb-4"><label for="email" class="block mb-2 text-black">Email <span class="required">*</span></label><input id="email" name="email" type="email" value="" size="30" required="required" class="w-full p-2 border border-gray-300 rounded bg-white text-black"></div>',
             'url' => '<div class="comment-form-url mb-4"><label for="url" class="block mb-2 text-black">Website</label><input id="url" name="url" type="url" value="" size="30" class="w-full p-2 border border-gray-300 rounded bg-white text-black"></div>',
         ),
-        'class_submit' => 'bg-[#6C619E] text-white py-2 px-4 rounded-md shadow hover:bg-[#4D4284] focus:outline-none focus:ring-2 focus:ring-offset-2',
+        'class_submit' => 'bg-[#6C619E] text-white py-2 px-4 rounded-md shadow hover:bg-[#4D4284] focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer',
         'submit_button' => '<input name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s" />',
     );
     

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 12">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #0707f6;
+      }
+
+      .cls-2 {
+        fill: #0a0a94;
+      }
+
+      .cls-3 {
+        fill: #f90404;
+      }
+
+      .cls-4 {
+        fill: #0c0c0c;
+      }
+
+      .cls-5 {
+        fill: #ad0707;
+      }
+
+      .cls-6 {
+        fill: #fcfcfc;
+      }
+
+      .cls-7 {
+        fill: #adadad;
+      }
+    </style>
+  </defs>
+  <g id="svg2">
+    <g id="g6279">
+      <path id="path15140" class="cls-4" d="M1,0v1H0v10h1v1h14v-1h1V1h-1V0H1Z"/>
+      <g id="g15132">
+        <path id="path15144" class="cls-1" d="M1,1h14v10H1V1Z"/>
+        <path id="path15146" class="cls-6" d="M6,1v2H1v4h5v4h4v-4h5V3h-5V1h-4Z"/>
+        <path id="path15148" class="cls-2" d="M1,9h14v2H1v-2Z"/>
+        <path id="path15152" class="cls-7" d="M6,9h4v2h-4v-2Z"/>
+        <path id="path15154" class="cls-3" d="M7,1v3H1v2h6v5h2v-5h6v-2h-6V1h-2Z"/>
+        <path id="path15158" class="cls-5" d="M7,9h2v2h-2v-2Z"/>
+        <g id="g15160">
+          <path id="path15164" class="cls-6" d="M1,1v1h1v1h3v-1h-1v-1H1Z"/>
+        </g>
+        <g id="g15168">
+          <path id="path15172" class="cls-6" d="M12,1v1h-1v1h3v-1h1v-1h-3Z"/>
+        </g>
+        <g id="g15176">
+          <path id="path15178" class="cls-6" d="M3,7v1h-1v1h3v-1h1v-1h-3Z"/>
+          <path id="path15182" class="cls-7" d="M1,9v2h2v-1h1v-1H1Z"/>
+        </g>
+        <g id="g15186">
+          <path id="path15188" class="cls-6" d="M10,7v1h1v1h3v-1h-1v-1h-3Z"/>
+          <path id="path15192" class="cls-7" d="M12,9v1h1v1h2v-2h-3Z"/>
+        </g>
+        <g id="g15196">
+          <path id="path15198" class="cls-3" d="M3,2h1v1h-1v-1Z"/>
+          <path id="path15200" class="cls-3" d="M2,1h1v1h-1v-1Z"/>
+        </g>
+        <g id="g15202">
+          <path id="path15204" class="cls-3" d="M13,2h-1v1h1v-1Z"/>
+          <path id="path15206" class="cls-3" d="M14,1h-1v1h1v-1Z"/>
+        </g>
+        <g id="g15208">
+          <path id="path15210" class="cls-3" d="M4,8h1v-1h-1v1Z"/>
+          <path id="path15212" class="cls-3" d="M3,9h1v-1h-1v1Z"/>
+          <path id="path15214" class="cls-5" d="M2,10h1v-1h-1v1Z"/>
+          <path id="path15216" class="cls-5" d="M1,11h1v-1h-1v1Z"/>
+        </g>
+        <g id="g15218">
+          <path id="path15220" class="cls-3" d="M12,8h-1v-1h1v1Z"/>
+          <path id="path15222" class="cls-3" d="M13,9h-1v-1h1v1Z"/>
+          <path id="path15224" class="cls-5" d="M14,10h-1v-1h1v1Z"/>
+          <path id="path15226" class="cls-5" d="M15,11h-1v-1h1v1Z"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

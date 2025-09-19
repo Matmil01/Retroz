@@ -12,7 +12,7 @@
     <div class="max-w-6xl mx-auto flex items-center px-6 h-20 gap-10 font-main">
 
 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center gap-3 font-main text-white">
-    <span class="logo-icon w-20 h-20 inline-flex items-center justify-center">
+    <span class="logo-icon w-17 h-17 inline-flex items-center justify-center mt-2">
         <?php
         // Memory Karl
         echo file_get_contents(get_template_directory() . '/icons/MemoryKarl.svg');
@@ -55,8 +55,10 @@
                 
                 if ($languages) {
                     foreach ($languages as $code => $language) {
-                        $flag = $code === 'en' ? '🇬🇧' : '🇩🇰';
-                        echo '<a href="' . esc_url($language['url']) . '" class="text-lg text-white">' . $flag . '</a>';
+                        $svg_file = $code === 'en' ? 'toggle_eng.svg' : 'toggle_dk.svg';
+                        echo '<a href="' . esc_url($language['url']) . '" class="cursor-pointer">';
+                        echo '<img src="' . get_template_directory_uri() . '/icons/' . $svg_file . '" alt="' . esc_attr($language['name']) . ' language" class="w-7 h-7">';
+                        echo '</a>';
                     }
                 }
             } ?>

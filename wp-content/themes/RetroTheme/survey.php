@@ -80,8 +80,8 @@
                 <?php
                 $topics = get_posts(['post_type' => 'topic', 'numberposts' => -1]);
                 foreach ($topics as $topic) : ?>
-                    <label class="inline-flex items-center text-gray-700">
-                        <input type="checkbox" name="topics[]" value="<?php echo esc_attr($topic->ID); ?>" class="mr-2">
+                    <label class="inline-flex items-center text-gray-700 cursor-pointer">
+                        <input type="checkbox" name="topics[]" value="<?php echo esc_attr($topic->ID); ?>" class="mr-2 cursor-pointer">
                         <?php echo esc_html($topic->post_title); ?>
                     </label>
                 <?php endforeach; ?>
@@ -89,7 +89,7 @@
         </div>
 
         <div>
-            <input type="submit" value="Send" class="w-full bg-[#6C619E] text-white py-2 px-4 rounded-md shadow hover:bg-[#4D4284] focus:outline-none focus:ring-2 focus:ring-offset-2">
+            <input type="submit" value="Send" class="w-full bg-[#6C619E] text-white py-2 px-4 rounded-md shadow hover:bg-[#4D4284] focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer">
         </div>
     </form>
 </div>
