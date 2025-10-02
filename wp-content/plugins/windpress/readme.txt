@@ -4,7 +4,7 @@ Donate link: https://ko-fi.com/Q5Q75XSF7
 Tags: tailwind, tailwindcss, tailwind css
 Requires at least: 6.0
 Tested up to: 6.8
-Stable tag: 3.2.62
+Stable tag: 3.2.63
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -124,6 +124,10 @@ Note: The Pro version has a version number with one higher minor version than th
 For instance:
 Free version 1.**0**.4
 Pro version 1.**1**.4
+
+= 3.2.63 - 2025-09-27 =
+* **Fix**: [Breakdance] Integration doesn't load on the recent version of Breakdance (v2.4.1)
+* **Fix**: [TW4] IntelliSense was failing to correctly clean up `@apply` directives
 
 = 3.2.62 - 2025-09-13 =
 * **Improve**: Improve the File editor performance by register the IntelliSense only once after the editor is initialized
@@ -449,7 +453,8 @@ Pro version 1.**1**.4
 
 = 1.0.0 - 2024-12-19 =
 * **New**: 🐣 Initial release.
-* [unreleased]: https://github.com/wind-press/windpress/compare/v3.2.62...HEAD
+* [unreleased]: https://github.com/wind-press/windpress/compare/v3.2.63...HEAD
+* [3.2.63]: https://github.com/wind-press/windpress/compare/v3.2.62...v3.2.63
 * [3.2.62]: https://github.com/wind-press/windpress/compare/v3.2.61...v3.2.62
 * [3.2.61]: https://github.com/wind-press/windpress/compare/v3.2.60...v3.2.61
 * [3.2.60]: https://github.com/wind-press/windpress/compare/v3.2.59...v3.2.60
