@@ -127,3 +127,97 @@ function pll_register_strings() {
 }
 
 add_action("init", "pll_register_strings");
+
+// Handle testimonial submissions from the frontend
+add_action( 'admin_post_testimonialsFunction', 'retro_handle_testimonial_submission' );
+add_action( 'admin_post_nopriv_testimonialsFunction', 'retro_handle_testimonial_submission_nopriv' );
+
+function retro_handle_testimonial_submission_nopriv() {
+	// Guests are not allowed to submit — stop here per requirement
+	wp_die( sprintf(
+		/* translators: %s: registration url */
+		__( 'You must be logged in to submit a testimonial. <a href="%s">Register here</a>.' ),
+		esc_url( wp_registration_url() )
+	) );
+}
+
+function retro_handle_testimonial_submission() {
+	if ( ! is_user_logged_in() ) {
+		// double-check on server side
+		wp_die( sprintf(
+			__( 'You must be logged in to submit a testimonial. <a href="%s">Register here</a>.' ),
+			esc_url( wp_registration_url() )
+		) );
+	}
+
+	// Verify nonce
+	if ( empty( $_POST['testimonial_nonce'] ) || ! wp_verify_nonce( $_POST['testimonial_nonce'], 'submit_testimonial' ) ) {
+		wp_die( 'Security check failed. Please go back and try again.' );
+	}
+
+	$current_user_id = get_current_user_id();
+
+	$first = isset( $_POST['first_name'] ) ? sanitize_text_field( wp_unslash( $_POST['first_name'] ) ) : '';
+	$last  = isset( $_POST['last_name'] ) ? sanitize_text_field( wp_unslash( $_POST['last_name'] ) ) : '';
+	$content = isset( $_POST['brodtekst'] ) ? sanitize_textarea_field( wp_unslash( $_POST['brodtekst'] ) ) : '';
+
+	$title = trim( $first . ' ' . $last );
+	if ( empty( $title ) ) {
+		$title = 'Testimonial from user #' . $current_user_id;
+	}
+
+	$post_data = array(
+		'post_title'   => $title,
+		'post_content' => $content,
+		'post_status'  => 'pending', // admin can review
+		'post_author'  => $current_user_id,
+		'post_type'    => 'post', // adjust if you have a testimonial CPT
+	);
+
+	$post_id = wp_insert_post( $post_data );
+
+	if ( is_wp_error( $post_id ) || ! $post_id ) {
+		wp_die( 'There was an error saving your testimonial. Please try again.' );
+	}
+
+	// Handle file upload (profilbillede)
+	if ( ! empty( $_FILES['profilbillede']['name'] ) ) {
+		require_once ABSPATH . 'wp-admin/includes/file.php';
+		require_once ABSPATH . 'wp-admin/includes/media.php';
+		require_once ABSPATH . 'wp-admin/includes/image.php';
+
+		// Allow upload even if form did not submit from admin (test_form => false)
+		$overrides = array( 'test_form' => false );
+
+		$uploaded_file = wp_handle_upload( $_FILES['profilbillede'], $overrides );
+
+		if ( isset( $uploaded_file['file'] ) ) {
+			$filename = $uploaded_file['file'];
+			$filetype = wp_check_filetype( basename( $filename ), null );
+
+			$attachment = array(
+				'post_mime_type' => $filetype['type'],
+				'post_title'     => sanitize_file_name( basename( $filename ) ),
+				'post_content'   => '',
+				'post_status'    => 'inherit'
+			);
+
+			$attach_id = wp_insert_attachment( $attachment, $filename, $post_id );
+			if ( ! is_wp_error( $attach_id ) ) {
+				$attach_data = wp_generate_attachment_metadata( $attach_id, $filename );
+				wp_update_attachment_metadata( $attach_id, $attach_data );
+
+				// Set as featured image if supported
+				if ( function_exists( 'set_post_thumbnail' ) ) {
+					set_post_thumbnail( $post_id, $attach_id );
+				}
+			}
+		}
+	}
+
+	// Redirect back to referrer (or home) with a query var indicating success
+	$redirect = wp_get_referer() ? wp_get_referer() : home_url();
+	$redirect = add_query_arg( 'testimonial_submitted', '1', $redirect );
+	wp_safe_redirect( $redirect );
+	exit;
+}
