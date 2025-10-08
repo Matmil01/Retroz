@@ -20,12 +20,12 @@
         </div>
 
         <div>
-            <label for="brodtekst" class="block text-sm font-medium text-gray-700">tekst</label>
+            <label for="brodtekst" class="block text-sm font-medium text-gray-700"><?php pll_e("Text"); ?></label>
             <input type="text" id="brodtekst" name="brodtekst" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
         </div>
 
         <div>
-            <label for="profilbillede" class="block text-sm font-medium text-gray-700">pfp</label>
+            <label for="profilbillede" class="block text-sm font-medium text-gray-700"><?php pll_e("Profile Picture"); ?></label>
             <input type="file" id="profilbillede" name="profilbillede" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
         </div>
 

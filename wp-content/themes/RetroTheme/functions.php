@@ -121,6 +121,8 @@ function pll_register_strings() {
 	pll_register_string("Polylang survey","Whats your typical budget range when buying retro games?");
 	pll_register_string("Polylang survey","Where do you usually buy your retro games?");
 	pll_register_string("Polylang survey","What retro games would you love to see available in our webshop?");
+	pll_register_string("Polylang","Text");
+	pll_register_string("Polylang","Profile Picture");
 
 }
 
