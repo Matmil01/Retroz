@@ -169,15 +169,27 @@ function retro_handle_testimonial_submission() {
 	$post_data = array(
 		'post_title'   => $title,
 		'post_content' => $content,
-		'post_status'  => 'pending', // admin can review
+		'post_status'  => 'pending',
 		'post_author'  => $current_user_id,
-		'post_type'    => 'testimonial', 
+		'post_type'    => 'testimonial',
 	);
 
 	$post_id = wp_insert_post( $post_data );
 
 	if ( is_wp_error( $post_id ) || ! $post_id ) {
 		wp_die( 'There was an error saving your testimonial. Please try again.' );
+	}
+
+	// Save submitted values into post meta so they show in WP (and also update ACF if present)
+	update_post_meta( $post_id, 'first_name', $first );
+	update_post_meta( $post_id, 'last_name', $last );
+	update_post_meta( $post_id, 'brodtekst', $content );
+
+	if ( function_exists( 'update_field' ) ) {
+		// Use ACF's update_field when available (field name or key)
+		update_field( 'first_name', $first, $post_id );
+		update_field( 'last_name', $last, $post_id );
+		update_field( 'brodtekst', $content, $post_id );
 	}
 
 	// Handle file upload (profilbillede)
@@ -210,6 +222,12 @@ function retro_handle_testimonial_submission() {
 				// Set as featured image if supported
 				if ( function_exists( 'set_post_thumbnail' ) ) {
 					set_post_thumbnail( $post_id, $attach_id );
+				}
+
+				// Save attachment ID to post meta and ACF image field (if used)
+				update_post_meta( $post_id, 'profilbillede', $attach_id );
+				if ( function_exists( 'update_field' ) ) {
+					update_field( 'profilbillede', $attach_id, $post_id );
 				}
 			}
 		}
