@@ -171,7 +171,7 @@ function retro_handle_testimonial_submission() {
 		'post_content' => $content,
 		'post_status'  => 'pending', // admin can review
 		'post_author'  => $current_user_id,
-		'post_type'    => 'post', // adjust if you have a testimonial CPT
+		'post_type'    => 'testimonial', 
 	);
 
 	$post_id = wp_insert_post( $post_data );
