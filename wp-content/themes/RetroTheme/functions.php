@@ -246,3 +246,8 @@ function retro_handle_testimonial_submission() {
 	wp_safe_redirect( $redirect );
 	exit;
 }
+
+function retro_enable_woo() {
+	add_theme_support( 'woocommerce' );
+}
+add_action( 'after_setup_theme', 'retro_enable_woo' );
