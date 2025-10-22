@@ -78,3 +78,25 @@ header nav a[href='/'] {
     text-decoration: underline !important;
 }
 
+
+.woocommerce:where(body:not(.woocommerce-uses-block-theme)) ul.products li.product .price {
+    color: #6C619E !important;
+}
+
+.woocommerce span.onsale {
+    background-color: red;
+}
+
+/* .woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+    width: 100%;
+} */
+
+@layer utilities {
+  .columns-4 {
+    columns: auto !important;
+  }
+}
+
+#sidebar {
+    display: none !important;
+}
