@@ -8,6 +8,7 @@
 <div class="container mx-auto px-4 py-8">
     <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="POST" class="space-y-6 max-w-lg mx-auto p-6 bg-gray-100 rounded-lg shadow-md">
         <input type="hidden" name="action" value="surveyFunction">
+        <?php wp_nonce_field( 'submit_survey', 'survey_nonce' ); ?>
 
         <div>
             <label for="firstName" class="block text-sm font-medium text-gray-700"><?php pll_e("First name"); ?></label>

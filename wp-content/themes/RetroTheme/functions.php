@@ -121,7 +121,121 @@ function pll_register_strings() {
 	pll_register_string("Polylang survey","Whats your typical budget range when buying retro games?");
 	pll_register_string("Polylang survey","Where do you usually buy your retro games?");
 	pll_register_string("Polylang survey","What retro games would you love to see available in our webshop?");
+	pll_register_string("Polylang","Text");
+	pll_register_string("Polylang","Profile Picture");
 
 }
 
 add_action("init", "pll_register_strings");
+
+// Handle testimonial submissions from the frontend
+add_action( 'admin_post_testimonialsFunction', 'retro_handle_testimonial_submission' );
+add_action( 'admin_post_nopriv_testimonialsFunction', 'retro_handle_testimonial_submission_nopriv' );
+
+function retro_handle_testimonial_submission_nopriv() {
+	// Guests are not allowed to submit — stop here per requirement
+	wp_die( sprintf(
+		/* translators: %s: registration url */
+		__( 'You must be logged in to submit a testimonial. <a href="%s">Register here</a>.' ),
+		esc_url( wp_registration_url() )
+	) );
+}
+
+function retro_handle_testimonial_submission() {
+	if ( ! is_user_logged_in() ) {
+		// double-check on server side
+		wp_die( sprintf(
+			__( 'You must be logged in to submit a testimonial. <a href="%s">Register here</a>.' ),
+			esc_url( wp_registration_url() )
+		) );
+	}
+
+	// Verify nonce
+	if ( empty( $_POST['testimonial_nonce'] ) || ! wp_verify_nonce( $_POST['testimonial_nonce'], 'submit_testimonial' ) ) {
+		wp_die( 'Security check failed. Please go back and try again.' );
+	}
+
+	$current_user_id = get_current_user_id();
+
+	$first = isset( $_POST['first_name'] ) ? sanitize_text_field( wp_unslash( $_POST['first_name'] ) ) : '';
+	$last  = isset( $_POST['last_name'] ) ? sanitize_text_field( wp_unslash( $_POST['last_name'] ) ) : '';
+	$content = isset( $_POST['brodtekst'] ) ? sanitize_textarea_field( wp_unslash( $_POST['brodtekst'] ) ) : '';
+
+	$title = trim( $first . ' ' . $last );
+	if ( empty( $title ) ) {
+		$title = 'Testimonial from user #' . $current_user_id;
+	}
+
+	$post_data = array(
+		'post_title'   => $title,
+		'post_content' => $content,
+		'post_status'  => 'pending',
+		'post_author'  => $current_user_id,
+		'post_type'    => 'testimonial',
+	);
+
+	$post_id = wp_insert_post( $post_data );
+
+	if ( is_wp_error( $post_id ) || ! $post_id ) {
+		wp_die( 'There was an error saving your testimonial. Please try again.' );
+	}
+
+	// Save submitted values into post meta so they show in WP (and also update ACF if present)
+	update_post_meta( $post_id, 'first_name', $first );
+	update_post_meta( $post_id, 'last_name', $last );
+	update_post_meta( $post_id, 'brodtekst', $content );
+
+	if ( function_exists( 'update_field' ) ) {
+		// Use ACF's update_field when available (field name or key)
+		update_field( 'first_name', $first, $post_id );
+		update_field( 'last_name', $last, $post_id );
+		update_field( 'brodtekst', $content, $post_id );
+	}
+
+	// Handle file upload (profilbillede)
+	if ( ! empty( $_FILES['profilbillede']['name'] ) ) {
+		require_once ABSPATH . 'wp-admin/includes/file.php';
+		require_once ABSPATH . 'wp-admin/includes/media.php';
+		require_once ABSPATH . 'wp-admin/includes/image.php';
+
+		// Allow upload even if form did not submit from admin (test_form => false)
+		$overrides = array( 'test_form' => false );
+
+		$uploaded_file = wp_handle_upload( $_FILES['profilbillede'], $overrides );
+
+		if ( isset( $uploaded_file['file'] ) ) {
+			$filename = $uploaded_file['file'];
+			$filetype = wp_check_filetype( basename( $filename ), null );
+
+			$attachment = array(
+				'post_mime_type' => $filetype['type'],
+				'post_title'     => sanitize_file_name( basename( $filename ) ),
+				'post_content'   => '',
+				'post_status'    => 'inherit'
+			);
+
+			$attach_id = wp_insert_attachment( $attachment, $filename, $post_id );
+			if ( ! is_wp_error( $attach_id ) ) {
+				$attach_data = wp_generate_attachment_metadata( $attach_id, $filename );
+				wp_update_attachment_metadata( $attach_id, $attach_data );
+
+				// Set as featured image if supported
+				if ( function_exists( 'set_post_thumbnail' ) ) {
+					set_post_thumbnail( $post_id, $attach_id );
+				}
+
+				// Save attachment ID to post meta and ACF image field (if used)
+				update_post_meta( $post_id, 'profilbillede', $attach_id );
+				if ( function_exists( 'update_field' ) ) {
+					update_field( 'profilbillede', $attach_id, $post_id );
+				}
+			}
+		}
+	}
+
+	// Redirect back to referrer (or home) with a query var indicating success
+	$redirect = wp_get_referer() ? wp_get_referer() : home_url();
+	$redirect = add_query_arg( 'testimonial_submitted', '1', $redirect );
+	wp_safe_redirect( $redirect );
+	exit;
+}
