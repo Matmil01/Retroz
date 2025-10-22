@@ -124,12 +124,9 @@ function pll_register_strings() {
 	pll_register_string("Polylang","Text");
 	pll_register_string("Polylang","Profile Picture");
 	pll_register_string("Polylang","Topics");
-
-	    // Register topic titles for translation
-    $topics = get_posts(['post_type' => 'topic', 'numberposts' => -1]);
-    foreach ($topics as $topic) {
-        pll_register_string("Topics", $topic->post_title);
-    }
+	pll_register_string("Topics", "Consoles");
+	pll_register_string("Topics", "Retro games");
+	pll_register_string("Topics", "Sustainability");
 
 }
 
