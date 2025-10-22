@@ -123,6 +123,13 @@ function pll_register_strings() {
 	pll_register_string("Polylang survey","What retro games would you love to see available in our webshop?");
 	pll_register_string("Polylang","Text");
 	pll_register_string("Polylang","Profile Picture");
+	pll_register_string("Polylang","Topics");
+
+	    // Register topic titles for translation
+    $topics = get_posts(['post_type' => 'topic', 'numberposts' => -1]);
+    foreach ($topics as $topic) {
+        pll_register_string("Topics", $topic->post_title);
+    }
 
 }
 

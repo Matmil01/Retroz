@@ -83,7 +83,7 @@
                 foreach ($topics as $topic) : ?>
                     <label class="inline-flex items-center text-gray-700 cursor-pointer">
                         <input type="checkbox" name="topics[]" value="<?php echo esc_attr($topic->ID); ?>" class="mr-2 cursor-pointer">
-                        <?php echo esc_html($topic->post_title); ?>
+                        <?php echo esc_html(pll__($topic->post_title)); ?>
                     </label>
                 <?php endforeach; ?>
             </div>
