@@ -1,0 +1,7 @@
+2025-10-22T07:18:56+00:00 DEBUG Automattic\WooCommerce\Internal\DataStores\Orders\DataSynchronizer::query_orders_pending_sync_count was called but no order types were registered: it may have been called too early.
+2025-10-22T07:20:20+00:00 DEBUG Automattic\WooCommerce\Internal\DataStores\Orders\DataSynchronizer::query_orders_pending_sync_count was called but no order types were registered: it may have been called too early.
+2025-10-22T07:20:20+00:00 DEBUG Automattic\WooCommerce\Internal\DataStores\Orders\DataSynchronizer::query_orders_pending_sync_count was called but no order types were registered: it may have been called too early.
+2025-10-22T07:20:20+00:00 DEBUG Automattic\WooCommerce\Internal\DataStores\Orders\DataSynchronizer::query_orders_pending_sync_count was called but no order types were registered: it may have been called too early.
+2025-10-22T07:20:34+00:00 DEBUG Automattic\WooCommerce\Internal\DataStores\Orders\DataSynchronizer::query_orders_pending_sync_count was called but no order types were registered: it may have been called too early.
+2025-10-22T07:20:34+00:00 DEBUG Automattic\WooCommerce\Internal\DataStores\Orders\DataSynchronizer::query_orders_pending_sync_count was called but no order types were registered: it may have been called too early.
+2025-10-22T07:20:34+00:00 DEBUG Automattic\WooCommerce\Internal\DataStores\Orders\DataSynchronizer::query_orders_pending_sync_count was called but no order types were registered: it may have been called too early.
