@@ -451,8 +451,9 @@ header nav a[href='/'] {
     font-family: var(--font-main) !important;
     font-size: 1rem !important;
     border: none !important;
-    padding: 1rem 1.5rem !important;
+    padding: 1rem 1.5rem 1rem 3rem !important;
     margin-bottom: 2rem !important;
+    position: relative;
 }
 
 .woocommerce-message .button,
@@ -627,6 +628,26 @@ header nav a[href='/'] {
     header .logo-text {
         font-size: 2rem !important;
     }
+}
+
+/* Cart badge når folk tilføjer shit til æ kurv */
+.cart-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #E53935;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 0.1rem 0.35rem;
+    min-width: 1rem;
+    height: 1rem;
+    text-align: center;
+    line-height: 1rem;
+    pointer-events: none;
+    z-index: 10;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.12);
 }
 
 /* Footer up ur ass */

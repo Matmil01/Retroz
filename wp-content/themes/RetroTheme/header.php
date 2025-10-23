@@ -23,7 +23,7 @@
     </h1> 
 </a>
 
-        <!-- Hamburger menu button (mobile only) -->
+        <!-- Hamburger -->
         <button id="nav-toggle" class="lg:hidden flex items-center px-2 py-1 border rounded text-white ml-auto" aria-label="Toggle menu">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
@@ -54,8 +54,14 @@
             <a href="<?php echo esc_url( get_permalink( get_option('woocommerce_myaccount_page_id') ) ); ?>" class="inline-flex items-center justify-center w-8 h-8">
                 <img src="<?php echo get_template_directory_uri(); ?>/icons/pixel-account.svg" alt="My Account" class="w-8 h-8" />
             </a>
-            <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="inline-flex items-center justify-center w-8 h-8">
+            <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="inline-flex items-center justify-center w-8 h-8 relative">
                 <img src="<?php echo get_template_directory_uri(); ?>/icons/pixel-cart.svg" alt="Cart" class="w-8 h-8" />
+                <?php
+                $cart_count = WC()->cart->get_cart_contents_count();
+                if ( $cart_count > 0 ) {
+                    echo '<span class="cart-badge">' . esc_html( $cart_count ) . '</span>';
+                }
+                ?>
             </a>
 
             <!-- Midlertidig spacer -->
@@ -82,7 +88,6 @@
 
     </div>
 
-    <!-- Mobile dropdown menu (outside the flex row, under navbar) -->
     <nav id="nav-menu" class="lg:hidden w-full bg-[#4D4284] text-white font-main hidden">
         <?php
         if ( has_nav_menu('primary') ) {
