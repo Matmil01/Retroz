@@ -143,15 +143,18 @@ header nav a[href='/'] {
     box-shadow: 0 1px 4px rgba(0,0,0,0.10);
 }
 
-.woocommerce ul.products li.product h2 {
-    font-family: var(--font-headline);
-    font-size: 1.5rem;
-    color: #4D4284;
+.woocommerce ul.products li.product h2.woocommerce-loop-product__title {
+    font-size: 1.5rem !important;
+    font-family: var(--font-headline) !important;
+    color: #4D4284 !important;
+    text-decoration: underline !important;
 }
 
 /* --- ADD TO CART BUTTON --- */
 /* Add to cart button styles for product grid */
 .woocommerce ul.products li.product .button {
+    display: block;
+    margin: 1rem auto 0 auto;
     background: #6C619E;
     color: #fff;
     border-radius: 6px;
@@ -159,6 +162,8 @@ header nav a[href='/'] {
     font-family: var(--font-main);
     font-weight: bold;
     transition: background 0.2s;
+    text-align: center;
+    text-decoration: underline
 }
 .woocommerce ul.products li.product .button:hover {
     background: #4D4284;
