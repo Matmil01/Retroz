@@ -23,8 +23,14 @@
     </h1> 
 </a>
 
+        <!-- Hamburger menu button (mobile only) -->
+        <button id="nav-toggle" class="lg:hidden flex items-center px-2 py-1 border rounded text-white ml-auto" aria-label="Toggle menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
 
-        <nav class="flex font-main text-white" aria-label="<?php esc_attr_e('Primary menu','retro'); ?>">
+        <nav class="hidden lg:flex font-main text-white" aria-label="<?php esc_attr_e('Primary menu','retro'); ?>">
             <?php
             if ( has_nav_menu('primary') ) {
                 wp_nav_menu( array(
@@ -75,5 +81,36 @@
         </div>
 
     </div>
+
+    <!-- Mobile dropdown menu (outside the flex row, under navbar) -->
+    <nav id="nav-menu" class="lg:hidden w-full bg-[#4D4284] text-white font-main hidden">
+        <?php
+        if ( has_nav_menu('primary') ) {
+            wp_nav_menu( array(
+                'theme_location' => 'primary',
+                'container'      => false,
+                'menu_class'     => 'flex flex-col gap-4 list-none m-0 p-0 font-main text-white',
+                'items_wrap'     => '<ul class="%2$s">%3$s</ul>',
+                'fallback_cb'    => false,
+                'link_before'    => '<span class="tracking-wide font-main text-white">',
+                'link_after'     => '</span>',
+            ) );
+        } else {
+            echo '<ul class="flex flex-col gap-4 list-none m-0 p-0 font-main text-white">';
+            wp_list_pages( array( 'title_li' => '' ) );
+            echo '</ul>';
+        }
+        ?>
+    </nav>
 </header>
 <main id="site-content" class="max-w-7xl mx-auto px-6 py-10 text-white">
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var navToggle = document.getElementById('nav-toggle');
+    var navMenu = document.getElementById('nav-menu');
+    navToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('hidden');
+    });
+});
+</script>
