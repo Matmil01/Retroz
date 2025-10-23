@@ -127,6 +127,11 @@ function pll_register_strings() {
 	pll_register_string("Topics", "Consoles");
 	pll_register_string("Topics", "Retro games");
 	pll_register_string("Topics", "Sustainability");
+	pll_register_string("Blog button","READ MORE");
+	pll_register_string("Blog section","Recent Blogposts");
+	pll_register_string("Frontpage title","Latest Deals");
+
+
 
 }
 
