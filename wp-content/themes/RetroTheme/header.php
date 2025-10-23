@@ -45,6 +45,16 @@
         </nav>
 
         <div class="flex items-center gap-4 ml-auto font-main text-white">
+            <a href="<?php echo esc_url( get_permalink( get_option('woocommerce_myaccount_page_id') ) ); ?>" class="inline-flex items-center justify-center w-8 h-8">
+                <img src="<?php echo get_template_directory_uri(); ?>/icons/pixel-account.svg" alt="My Account" class="w-8 h-8" />
+            </a>
+            <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="inline-flex items-center justify-center w-8 h-8">
+                <img src="<?php echo get_template_directory_uri(); ?>/icons/pixel-cart.svg" alt="Cart" class="w-8 h-8" />
+            </a>
+
+            <!-- Midlertidig spacer -->
+            <span style="width:2rem;display:inline-block;"></span>
+
             <?php if ( function_exists('pll_the_languages') ) {
                 $languages = pll_the_languages(array(
                     'show_flags'    => 0,
