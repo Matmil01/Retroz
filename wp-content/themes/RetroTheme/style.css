@@ -47,6 +47,8 @@ input:focus, textarea:focus, select:focus {
     outline-offset: 2px;
 }
 
+/* --- HEADER NAV LINK STYLES --- */
+/* Remove underline and border from header nav links */
 header nav a {
     text-decoration: none !important;
     border-bottom: none !important;
@@ -63,6 +65,8 @@ header .flex a {
     border-bottom: none !important;
 }
 
+/* --- CURRENT MENU ITEM STYLES --- */
+/* Highlight current menu item in header nav */
 header nav .current-menu-item a {
     color: #6C619E !important;
 }
@@ -78,6 +82,8 @@ header nav a[href='/'] {
     text-decoration: underline !important;
 }
 
+/* --- HERO IMAGE STYLES --- */
+/* Responsive hero image styles */
 .hero-img {
     width: 100%;
     height: auto;
@@ -121,7 +127,8 @@ header nav a[href='/'] {
     color: #888 !important;
 }
 
-/* Product card */
+/* --- WOOCOMMERCE PRODUCT CARD STYLES --- */
+/* Product card background, border, and shadow */
 .woocommerce ul.products li.product {
     background: #D9D9D9;
     border-radius: 12px;
@@ -131,20 +138,19 @@ header nav a[href='/'] {
     font-family: var(--font-main);
 }
 
-/* Product image */
 .woocommerce ul.products li.product img {
     border-radius: 8px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.10);
 }
 
-/* Product title */
 .woocommerce ul.products li.product h2 {
     font-family: var(--font-headline);
     font-size: 1.5rem;
     color: #4D4284;
 }
 
-/* Add to cart button */
+/* --- ADD TO CART BUTTON --- */
+/* Add to cart button styles for product grid */
 .woocommerce ul.products li.product .button {
     background: #6C619E;
     color: #fff;
@@ -176,6 +182,7 @@ header nav a[href='/'] {
     background: #4D4284 !important;
 }
 
+/* --- WOOCOMMERCE PRODUCT GRID --- */
 /* Remove WooCommerce default flex/floats for product grid */
 .woocommerce ul.products,
 .woocommerce-page ul.products {
@@ -187,14 +194,12 @@ header nav a[href='/'] {
     flex-wrap: unset !important;
 }
 
-/* Remove width set by WooCommerce on product cards */
 .woocommerce ul.products li.product,
 .woocommerce-page ul.products li.product {
     width: auto !important;
     float: none !important;
 }
 
-/* Responsive WooCommerce product grid */
 .woocommerce ul.products,
 .woocommerce-page ul.products {
     display: grid !important;
@@ -219,6 +224,7 @@ header nav a[href='/'] {
     }
 }
 
+/* --- WOOCOMMERCE CART & PRODUCT PAGE --- */
 .wp-block-woocommerce-cart {
     background: #D9D9D9;
     border-radius: 12px;
@@ -228,7 +234,6 @@ header nav a[href='/'] {
     color: #4D4284;
 }
 
-/* Main product container */
 .woocommerce div.product {
     background: #D9D9D9;
     border-radius: 12px;
@@ -238,7 +243,6 @@ header nav a[href='/'] {
     color: #4D4284;
 }
 
-/* Product title */
 .woocommerce div.product .product_title {
     font-family: var(--font-headline);
     color: #4D4284;
@@ -296,6 +300,7 @@ header nav a[href='/'] {
     background: #4D4284 !important;
 }
 
+/* --- WOOCOMMERCE CHECKOUT PAGE --- */
 .wp-block-woocommerce-checkout {
     background: #D9D9D9;
     border-radius: 12px;
@@ -324,6 +329,7 @@ header nav a[href='/'] {
     padding: 0.5rem;
 }
 
+/* --- MY ACCOUNT NAVIGATION --- */
 .woocommerce-MyAccount-navigation {
     width: auto;
     max-width: 220px;
@@ -359,24 +365,24 @@ header nav a[href='/'] {
     transition: background 0.2s, color 0.2s;
 }
 
-/* Normal hover for all except log out */
-.woocommerce-MyAccount-navigation ul li.is-active a,
-.woocommerce-MyAccount-navigation ul li a:hover {
-    background: #6C619E;
-    color: #fff;
-}
-
 /* Red hover for log out */
 .woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--customer-logout a:hover {
     background: #E53935;
     color: #fff;
 }
 
-/* Hide "Dashboard" in account sidebar */
+/* Normal hover for alt det andet fuckin shit */
+.woocommerce-MyAccount-navigation ul li.is-active a,
+.woocommerce-MyAccount-navigation ul li a:hover {
+    background: #6C619E;
+    color: #fff;
+}
+
 .woocommerce-MyAccount-navigation-link--dashboard {
     display: none !important;
 }
 
+/* --- MY ACCOUNT CONTENT --- */
 .woocommerce-MyAccount-content h1,
 .woocommerce-MyAccount-content h2,
 .woocommerce-MyAccount-content h3,
@@ -386,8 +392,6 @@ header nav a[href='/'] {
     color: #4D4284;
     font-family: var(--font-headline);
 }
-
-/* Account details form container */
 .woocommerce-MyAccount-content form {
     background: #D9D9D9;
     border-radius: 12px;
@@ -397,7 +401,6 @@ header nav a[href='/'] {
     color: #4D4284;
 }
 
-/* Account details form fields */
 .woocommerce-MyAccount-content form input,
 .woocommerce-MyAccount-content form select,
 .woocommerce-MyAccount-content form textarea {
@@ -410,7 +413,6 @@ header nav a[href='/'] {
     color: #4D4284;
 }
 
-/* Account details form labels */
 .woocommerce-MyAccount-content form label {
     font-family: var(--font-main);
     color: #4D4284;
@@ -419,7 +421,6 @@ header nav a[href='/'] {
     display: block;
 }
 
-/* Account details submit button */
 .woocommerce-MyAccount-content form button,
 .woocommerce-MyAccount-content form input[type="submit"] {
     background: #6C619E !important;
@@ -454,7 +455,6 @@ header nav a[href='/'] {
     margin-bottom: 2rem !important;
 }
 
-/* Buttons inside snackbars */
 .woocommerce-message .button,
 .woocommerce-info .button,
 .woocommerce-error .button,
@@ -481,7 +481,7 @@ header nav a[href='/'] {
     background: #4D4284 !important;
 }
 
-/* Responsive address boxes for WooCommerce My Account */
+/* --- MY ACCOUNT ADDRESS GRID --- */
 .woocommerce-MyAccount-content .woocommerce-Addresses {
     display: flex;
     gap: 2rem;
@@ -509,7 +509,6 @@ header nav a[href='/'] {
     margin-bottom: 1rem;
 }
 
-/* Edit button styling (default placement) */
 .woocommerce-MyAccount-content .woocommerce-Addresses .woocommerce-Address .edit {
     background: #6C619E !important;
     color: #fff !important;
@@ -523,7 +522,6 @@ header nav a[href='/'] {
     display: block;
 }
 
-/* Responsive: stack boxes on small screens */
 @media (max-width: 700px) {
     .woocommerce-MyAccount-content .woocommerce-Addresses {
         flex-direction: column;
@@ -534,6 +532,7 @@ header nav a[href='/'] {
     }
 }
 
+/* --- HEADER NAVIGATION & ICONS --- */
 @media (max-width: 1023px) {
     #nav-menu {
         position: static;
@@ -576,6 +575,7 @@ header nav a[href='/'] {
     }
 }
 
+/* --- HEADER ICONS & HAMBURGER MENU (MOBILE) --- */
 @media (max-width: 700px) {
     header .flex.items-center.gap-4 {
         display: grid;
@@ -592,6 +592,7 @@ header nav a[href='/'] {
         width: 0.5rem !important;
         grid-column: span 2;
     }
+    /* Hamburger menu button sizing for mobile */
     #nav-toggle {
         width: 2rem !important;
         height: 2rem !important;
@@ -603,6 +604,7 @@ header nav a[href='/'] {
     }
 }
 
+/* --- Hamburger styling --- */
 #nav-toggle {
     background: #6C619E !important;
     border: none !important;
@@ -620,9 +622,26 @@ header nav a[href='/'] {
     stroke: #fff !important;
 }
 
+/* --- Memory karl text size i nav på mobil --- */
 @media (max-width: 700px) {
     header .logo-text {
         font-size: 2rem !important;
     }
 }
 
+/* Footer up ur ass */
+@media (max-width: 700px) {
+    footer .flex.items-center.gap-10 {
+        gap: 0.8rem !important;
+    }
+    footer .flex.items-center.gap-10 a {
+        width: 1.3rem !important;
+        height: 1.3rem !important;
+        min-width: 1.3rem !important;
+        min-height: 1.3rem !important;
+    }
+    footer .flex.items-center.gap-10 a span svg {
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
