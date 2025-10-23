@@ -78,25 +78,443 @@ header nav a[href='/'] {
     text-decoration: underline !important;
 }
 
+/* BITCH ASS WOOCOMMERCE */
 
-.woocommerce:where(body:not(.woocommerce-uses-block-theme)) ul.products li.product .price {
-    color: #6C619E !important;
+#sidebar {
+    display: none !important;
+}
+
+/* Price */
+.woocommerce ul.products li.product .price,
+.woocommerce div.product .price {
+    color: #228B22 !important;
 }
 
 .woocommerce span.onsale {
     background-color: red;
 }
 
-/* .woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
-    width: 100%;
-} */
-
-@layer utilities {
-  .columns-4 {
-    columns: auto !important;
-  }
+.woocommerce ul.products li.product.sale .price {
+    color: #E53935 !important;
 }
 
-#sidebar {
+.woocommerce div.product .price ins {
+    color: #E53935 !important;
+}
+
+.woocommerce div.product .price del {
+    color: #888 !important;
+}
+
+/* Product card */
+.woocommerce ul.products li.product {
+    background: #D9D9D9;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    font-family: var(--font-main);
+}
+
+/* Product image */
+.woocommerce ul.products li.product img {
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+}
+
+/* Product title */
+.woocommerce ul.products li.product h2 {
+    font-family: var(--font-headline);
+    font-size: 1.5rem;
+    color: #4D4284;
+}
+
+/* Add to cart button */
+.woocommerce ul.products li.product .button {
+    background: #6C619E;
+    color: #fff;
+    border-radius: 6px;
+    padding: 0.5rem 1.5rem;
+    font-family: var(--font-main);
+    font-weight: bold;
+    transition: background 0.2s;
+}
+.woocommerce ul.products li.product .button:hover {
+    background: #4D4284;
+}
+
+/* Checkout button */
+.wc-block-cart__submit-button.contained {
+    background: #6C619E !important;
+    color: #fff !important;
+    border-radius: 6px !important;
+    padding: 0.5rem 1.5rem !important;
+    font-family: var(--font-main) !important;
+    font-weight: bold !important;
+    font-size: 1rem !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border: none !important;
+    transition: background 0.2s;
+}
+
+.wc-block-cart__submit-button.contained:hover {
+    background: #4D4284 !important;
+}
+
+/* Remove WooCommerce default flex/floats for product grid */
+.woocommerce ul.products,
+.woocommerce-page ul.products {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1.5rem !important;
+    padding: 0;
+    float: none !important;
+    flex-wrap: unset !important;
+}
+
+/* Remove width set by WooCommerce on product cards */
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product {
+    width: auto !important;
+    float: none !important;
+}
+
+/* Responsive WooCommerce product grid */
+.woocommerce ul.products,
+.woocommerce-page ul.products {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1.5rem !important;
+    padding: 0;
+    float: none !important;
+    flex-wrap: unset !important;
+}
+
+@media (max-width: 900px) {
+    .woocommerce ul.products,
+    .woocommerce-page ul.products {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .woocommerce ul.products,
+    .woocommerce-page ul.products {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+.wp-block-woocommerce-cart {
+    background: #D9D9D9;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 2rem;
+    font-family: var(--font-main);
+    color: #4D4284;
+}
+
+/* Main product container */
+.woocommerce div.product {
+    background: #D9D9D9;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 2rem;
+    font-family: var(--font-main);
+    color: #4D4284;
+}
+
+/* Product title */
+.woocommerce div.product .product_title {
+    font-family: var(--font-headline);
+    color: #4D4284;
+    font-size: 2rem;
+}
+
+/* Add to cart button */
+.woocommerce div.product form.cart .button {
+    background: #6C619E;
+    color: #fff;
+    border-radius: 6px;
+    padding: 0.5rem 1.5rem;
+    font-family: var(--font-main);
+    font-weight: bold;
+    transition: background 0.2s;
+}
+.woocommerce div.product form.cart .button:hover {
+    background: #4D4284;
+}
+
+/* Snackbar! */
+.woocommerce-message .button {
+    background: #6C619E !important;
+    color: #fff !important;
+    border-radius: 6px !important;
+    padding: 0.5rem 1.5rem !important;
+    font-family: var(--font-main) !important;
+    font-weight: bold !important;
+    font-size: 1rem !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border: none !important;
+    transition: background 0.2s;
+}
+
+.woocommerce-message .button:hover {
+    background: #4D4284 !important;
+}
+
+/* Place Order button whatever man */
+.wc-block-components-checkout-place-order-button.contained {
+    background: #6C619E !important;
+    color: #fff !important;
+    border-radius: 6px !important;
+    padding: 0.5rem 1.5rem !important;
+    font-family: var(--font-main) !important;
+    font-weight: bold !important;
+    font-size: 1rem !important;
+    border: none !important;
+    box-shadow: none !important;
+    text-decoration: none !important;
+    transition: background 0.2s;
+}
+
+.wc-block-components-checkout-place-order-button.contained:hover {
+    background: #4D4284 !important;
+}
+
+.wp-block-woocommerce-checkout {
+    background: #D9D9D9;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 2rem;
+    font-family: var(--font-main);
+    color: #4D4284;
+}
+
+.wp-block-woocommerce-checkout h1,
+.wp-block-woocommerce-checkout h2,
+.wp-block-woocommerce-checkout h3,
+.wp-block-woocommerce-checkout h4,
+.wp-block-woocommerce-checkout h5,
+.wp-block-woocommerce-checkout h6 {
+    color: #4D4284;
+    font-family: var(--font-headline);
+}
+
+.wp-block-woocommerce-checkout input,
+.wp-block-woocommerce-checkout select,
+.wp-block-woocommerce-checkout textarea {
+    border-radius: 6px;
+    border: 1px solid #6C619E;
+    font-family: var(--font-main);
+    padding: 0.5rem;
+}
+
+.woocommerce-MyAccount-navigation {
+    width: auto;
+    max-width: 220px;
+    min-width: 140px;
+    background: #D9D9D9;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 2rem 1rem;
+    font-family: var(--font-main);
+    color: #4D4284;
+    box-sizing: border-box;
+}
+
+.woocommerce-MyAccount-navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.woocommerce-MyAccount-navigation ul li {
+    margin-bottom: 1rem;
+}
+
+.woocommerce-MyAccount-navigation ul li a {
+    display: block;
+    background: transparent;
+    color: #4D4284;
+    font-family: var(--font-main);
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+
+/* Normal hover for all except log out */
+.woocommerce-MyAccount-navigation ul li.is-active a,
+.woocommerce-MyAccount-navigation ul li a:hover {
+    background: #6C619E;
+    color: #fff;
+}
+
+/* Red hover for log out */
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--customer-logout a:hover {
+    background: #E53935;
+    color: #fff;
+}
+
+/* Hide "Dashboard" in account sidebar */
+.woocommerce-MyAccount-navigation-link--dashboard {
     display: none !important;
+}
+
+.woocommerce-MyAccount-content h1,
+.woocommerce-MyAccount-content h2,
+.woocommerce-MyAccount-content h3,
+.woocommerce-MyAccount-content h4,
+.woocommerce-MyAccount-content h5,
+.woocommerce-MyAccount-content h6 {
+    color: #4D4284;
+    font-family: var(--font-headline);
+}
+
+/* Account details form container */
+.woocommerce-MyAccount-content form {
+    background: #D9D9D9;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 2rem;
+    font-family: var(--font-main);
+    color: #4D4284;
+}
+
+/* Account details form fields */
+.woocommerce-MyAccount-content form input,
+.woocommerce-MyAccount-content form select,
+.woocommerce-MyAccount-content form textarea {
+    border-radius: 6px;
+    border: 1px solid #6C619E;
+    font-family: var(--font-main);
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    background: #fff;
+    color: #4D4284;
+}
+
+/* Account details form labels */
+.woocommerce-MyAccount-content form label {
+    font-family: var(--font-main);
+    color: #4D4284;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+    display: block;
+}
+
+/* Account details submit button */
+.woocommerce-MyAccount-content form button,
+.woocommerce-MyAccount-content form input[type="submit"] {
+    background: #6C619E !important;
+    color: #fff !important;
+    border-radius: 6px !important;
+    padding: 0.5rem 1.5rem !important;
+    font-family: var(--font-main) !important;
+    font-weight: bold !important;
+    border: none !important;
+    transition: background 0.2s;
+}
+
+.woocommerce-MyAccount-content form button:hover,
+.woocommerce-MyAccount-content form input[type="submit"]:hover {
+    background: #4D4284 !important;
+}
+
+/* WooCommerce snackbars */
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error,
+.wp-block-woocommerce-cart .wc-block-components-notice,
+.wp-block-woocommerce-checkout .wc-block-components-notice {
+    background: #D9D9D9 !important;
+    color: #4D4284 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    font-family: var(--font-main) !important;
+    font-size: 1rem !important;
+    border: none !important;
+    padding: 1rem 1.5rem !important;
+    margin-bottom: 2rem !important;
+}
+
+/* Buttons inside snackbars */
+.woocommerce-message .button,
+.woocommerce-info .button,
+.woocommerce-error .button,
+.wp-block-woocommerce-cart .wc-block-components-notice .button,
+.wp-block-woocommerce-checkout .wc-block-components-notice .button {
+    background: #6C619E !important;
+    color: #fff !important;
+    border-radius: 6px !important;
+    padding: 0.5rem 1.5rem !important;
+    font-family: var(--font-main) !important;
+    font-weight: bold !important;
+    font-size: 1rem !important;
+    box-shadow: none !important;
+    border: none !important;
+    text-decoration: none !important;
+    transition: background 0.2s;
+}
+
+.woocommerce-message .button:hover,
+.woocommerce-info .button:hover,
+.woocommerce-error .button:hover,
+.wp-block-woocommerce-cart .wc-block-components-notice .button:hover,
+.wp-block-woocommerce-checkout .wc-block-components-notice .button:hover {
+    background: #4D4284 !important;
+}
+
+/* Responsive address boxes for WooCommerce My Account */
+.woocommerce-MyAccount-content .woocommerce-Addresses {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.woocommerce-MyAccount-content .woocommerce-Addresses .woocommerce-Address {
+    flex: 1 1 300px;
+    min-width: 260px;
+    background: #D9D9D9;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 2rem;
+    font-family: var(--font-main);
+    color: #4D4284;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.woocommerce-MyAccount-content .woocommerce-Addresses .woocommerce-Address h3 {
+    color: #4D4284;
+    font-family: var(--font-headline);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Edit button styling (default placement) */
+.woocommerce-MyAccount-content .woocommerce-Addresses .woocommerce-Address .edit {
+    background: #6C619E !important;
+    color: #fff !important;
+    border-radius: 6px !important;
+    padding: 0.4rem 1rem !important;
+    font-family: var(--font-main) !important;
+    font-weight: bold !important;
+    border: none !important;
+    text-decoration: none !important;
+    transition: background 0.2s;
+    display: block;
+}
+
+/* Responsive: stack boxes on small screens */
+@media (max-width: 700px) {
+    .woocommerce-MyAccount-content .woocommerce-Addresses {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .woocommerce-MyAccount-content .woocommerce-Addresses .woocommerce-Address {
+        min-width: 0;
+    }
 }
