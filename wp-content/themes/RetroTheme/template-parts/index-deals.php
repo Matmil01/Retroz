@@ -1,6 +1,6 @@
 <!-- insert those fucking deals and shit here -->
 
-<h2 class="text-3xl font-headline text-white mb-8 text-left">Latest Deals</h2>
+<h2 class="text-3xl font-headline text-white mb-8 text-left"><?php pll_e('Latest Deals'); ?></h2>
 
 <?php
 $args = array(

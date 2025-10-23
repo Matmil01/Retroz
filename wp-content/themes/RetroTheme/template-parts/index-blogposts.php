@@ -6,7 +6,8 @@
         "order" => "DESC",
     ));
     ?>
-            <h3>Recent Blogposts</h3>
+        <h3><?php pll_e('Recent Blogposts'); ?></h3>
+
         <?php if($loop->have_posts()): ?>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <?php while($loop->have_posts()): $loop->the_post();
@@ -59,7 +60,8 @@
                     </div>
                     <div class="flex justify-center pt-1">
                         <a href="<?php echo esc_url($url); ?>" class="bg-[#6C619E] text-white py-2 px-4 rounded-md shadow hover:bg-[#4D4284] focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer">
-                            READ MORE
+                        <?php pll_e('READ MORE'); ?>
+
                         </a>
                     </div>
                 </div>
