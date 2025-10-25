@@ -253,3 +253,19 @@ function retro_enable_woo() {
 	add_theme_support( 'woocommerce' );
 }
 add_action( 'after_setup_theme', 'retro_enable_woo' );
+
+add_filter( 'woocommerce_get_breadcrumb', function( $crumbs, $breadcrumb ) {
+    if ( is_product() ) {
+        $shop_page_id    = wc_get_page_id( 'shop' );
+        $shop_page_url   = get_permalink( $shop_page_id );
+        $shop_page_title = get_the_title( $shop_page_id );
+        $product_title   = get_the_title();
+
+        $crumbs = [
+            [ __( 'Home', 'RetroTheme' ), home_url() ],
+            [ $shop_page_title, $shop_page_url ],
+            [ $product_title, '' ]
+        ];
+    }
+    return $crumbs;
+}, 20, 2 );
