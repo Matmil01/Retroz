@@ -671,3 +671,74 @@ header nav a[href='/'] {
         height: 100% !important;
     }
 }
+
+/* --- WOOCOMMERCE MY ACCOUNT LOGIN/REGISTER --- */
+.woocommerce form.woocommerce-form-login,
+.woocommerce form.woocommerce-form-register {
+    background: #D9D9D9;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 2rem;
+    font-family: var(--font-main);
+    color: #4D4284;
+}
+
+.woocommerce form.woocommerce-form-login input,
+.woocommerce form.woocommerce-form-register input {
+    border-radius: 6px;
+    border: 1px solid #6C619E;
+    font-family: var(--font-main);
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    background: #fff;
+    color: #4D4284;
+    font-weight: bold;
+    display: block;
+}
+
+.woocommerce form.woocommerce-form-login label,
+.woocommerce form.woocommerce-form-register label {
+    font-family: var(--font-main);
+    color: #4D4284;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+    display: block;
+    font-size: 1rem;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.woocommerce form.woocommerce-form-login button,
+.woocommerce form.woocommerce-form-register button {
+    background: #6C619E !important;
+    color: #fff !important;
+    border-radius: 6px !important;
+    padding: 0.5rem 1.5rem !important;
+    font-family: var(--font-main) !important;
+    font-weight: bold !important;
+    border: none !important;
+    transition: background 0.2s;
+    margin-top: 1rem;
+}
+
+.woocommerce form.woocommerce-form-login button:hover,
+.woocommerce form.woocommerce-form-register button:hover {
+    background: #4D4284 !important;
+}
+
+.woocommerce form.woocommerce-ResetPassword button {
+    background: #6C619E !important;
+    color: #fff !important;
+    border-radius: 6px !important;
+    padding: 0.5rem 1.5rem !important;
+    font-family: var(--font-main) !important;
+    font-weight: bold !important;
+    border: none !important;
+    transition: background 0.2s;
+    margin-top: 1rem;
+}
+
+.woocommerce form.woocommerce-ResetPassword button:hover {
+    background: #4D4284 !important;
+}
