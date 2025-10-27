@@ -754,3 +754,7 @@ header nav a[href='/'] {
     color: #4D4284;
     margin-bottom: 2rem;
 }
+
+.woocommerce ul.products::before {
+    content: none !important;
+}
