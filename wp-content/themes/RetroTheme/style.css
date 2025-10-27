@@ -742,3 +742,15 @@ header nav a[href='/'] {
 .woocommerce form.woocommerce-ResetPassword button:hover {
     background: #4D4284 !important;
 }
+
+/* --- Account dashboard --- */
+.woocommerce-MyAccount-content .woocommerce-MyAccount-dashboard,
+.woocommerce-MyAccount-content > p {
+    background: #D9D9D9;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 2rem;
+    font-family: var(--font-main);
+    color: #4D4284;
+    margin-bottom: 2rem;
+}
