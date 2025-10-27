@@ -27,7 +27,7 @@ if ($deals->have_posts()): ?>
                 <a href="<?php the_permalink(); ?>">
                     <?php if (has_post_thumbnail()): ?>
                         <?php the_post_thumbnail('medium', [
-                            'class' => 'w-full h-[220px] object-contain rounded-lg shadow'
+                            'class' => 'w-full h-[250px] object-cover rounded-lg'
                         ]); ?>
                     <?php endif; ?>
                     <h2 class="font-headline text-[1.5rem] text-[#4D4284] mb-2"><?php the_title(); ?></h2>
