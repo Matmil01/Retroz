@@ -77,7 +77,7 @@ function surveyFunction() {
 	Hi " . $firstName . ",\n\n
 	Thank you for taking our survey.
 	 We're excited to spam you with emails ♫ all night long ♫.
-	 \n\nBest regards,\nRetroz";
+	 \n\nBest regards,\nThe Memory Card Team";
 
 	$surveytaker = wp_insert_post(array(
 		"post_type" => "survey-taker",
@@ -269,3 +269,13 @@ add_filter( 'woocommerce_get_breadcrumb', function( $crumbs, $breadcrumb ) {
     }
     return $crumbs;
 }, 20, 2 );
+
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'retro_translate_add_to_cart_button' );
+add_filter( 'woocommerce_product_add_to_cart_text', 'retro_translate_add_to_cart_button' );
+
+function retro_translate_add_to_cart_button( $text ) {
+    if ( function_exists( 'pll_current_language' ) && pll_current_language() === 'da' ) {
+        return 'Læg i kurv'; // DK translation
+    }
+    return $text; // Default (ENG)
+}
