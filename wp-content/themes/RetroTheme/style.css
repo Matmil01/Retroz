@@ -758,3 +758,52 @@ header nav a[href='/'] {
 .woocommerce ul.products::before {
     content: none !important;
 }
+
+.woocommerce-order-overview,
+.woocommerce-order-details,
+.woocommerce-order-downloads {
+    background: #D9D9D9;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 2rem;
+    font-family: var(--font-main);
+    color: #4D4284;
+    margin-bottom: 2rem;
+}
+
+.woocommerce-order-details h2,
+.woocommerce-order-details h3 {
+    color: #4D4284;
+    font-family: var(--font-headline);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.woocommerce-customer-details {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+}
+
+.woocommerce-column--billing-address,
+.woocommerce-column--shipping-address {
+    background: #D9D9D9;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 2rem;
+    font-family: var(--font-main);
+    color: #4D4284;
+    margin-bottom: 2rem;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.woocommerce-MyAccount-content .woocommerce-orders-table {
+    background: #D9D9D9;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 2rem;
+    font-family: var(--font-main);
+    color: #4D4284;
+    margin-bottom: 2rem;
+}
